@@ -1,0 +1,48 @@
+title: "An ISO TC 211 site"
+
+email: open.source@ribose.com
+
+description: >-
+  Welcome to this ISO/TC 211 site.
+
+# The protocol + domain name of the site
+# url: "https://geolexica.com"
+
+includes_dir: .
+
+markdown: kramdown
+
+permalink: /blog/:month-:day-:year/:title/
+
+# Social profile navigation
+# social:
+#   links:
+#     - url: https://twitter.com/…
+#     - url: https://github.com/…
+#     - url: https://www.facebook.com/groups/…
+#     - url: https://www.linkedin.com/groups/…
+
+# Main site navigation.
+# Layouts and pages can include nav_items array referring to link IDs in frontmatter
+nav:
+  home:
+    url: /
+    title: Home
+  about:
+    url: /about
+    title: About
+
+# Footer navigation
+footer_nav:
+  - url: https://committee.iso.org/home/tc211
+    title: ISO/TC 211
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .sass-cache/
