@@ -7,7 +7,7 @@ including www.isotc211.org and resource sites such as geolexica.com.
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub
-at https://github.com/riboseinc/jekyll-theme-open-project.
+at https://github.com/riboseinc/jekyll-theme-isotc211.
 
 This project is intended to be a safe, welcoming space for collaboration,
 and contributors are expected to adhere
@@ -50,8 +50,8 @@ of this repo and have a Jekyll site using this theme:
 1. For the Jekyll site, change Gemfile to point to local copy
    of the theme (the root of this repo) and run `bundle`.
 
-   For example, you’d change `gem "jekyll-theme-open-project", "~> 1.0.6"`
-   to `gem "jekyll-theme-open-project", :path => "../jekyll-theme-open-project"`.
+   For example, you’d change `gem "jekyll-theme-isotc211"`
+   to `gem "jekyll-theme-isotc211", :path => "../jekyll-theme-isotc211"`.
    The relative path assumes your site root and theme root are sibling directories.
 
 2. Run `bundle exec jekyll serve` to start Jekyll’s development server.
@@ -67,7 +67,7 @@ of this repo and have a Jekyll site using this theme:
 
 5. (To later bump the site to this latest version: revert the Gemfile change,
    update theme dependency version to the one you’ve just released,
-   run `bundle --full-index` to update lockfile properly,
+   run `bundle --full-index` to update the lockfile,
    and your site is ready to go.)
 
 #### Releasing
@@ -83,16 +83,6 @@ so use good judgement and thorough manual testing.
    * Pushes gem to rubygems.org
    * Creates new version tag in this repository
    * Pushes changes to GitHub
-
-#### Testing with build script (TBD)
-
-May not work at the moment — see #26. Please use the other test option.
-
-To check your theme, run:
-
-    ./develop/build
-
-It’ll build Jekyll site and run some checks, like HTML markup validation.
 
 
 ## License
