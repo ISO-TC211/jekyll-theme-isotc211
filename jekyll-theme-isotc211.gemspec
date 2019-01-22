@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.email         = ['open.source@ribose.com']
 
   s.summary       = 'ISO/TC 211 Jekyll theme'
-  s.homepage      = 'https://github.com/riboseinc/jekyll-theme-isotc211/'
+  s.homepage      = 'https://github.com/iso-tc211/jekyll-theme-isotc211/'
   s.license       = 'MIT'
 
   s.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^((_includes|_layouts|_sass|assets|_pages)/|(_config.yml|LICENSE|README)((\.(txt|md|markdown|adoc)|$)))}i) }
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'jekyll-seo-tag', '~> 2.0'
   s.add_runtime_dependency 'jekyll-data', '~> 1.0'
 
-  s.add_development_dependency 'bundler', '~> 1.16'
+  s.add_development_dependency 'bundler', '~> 2.0'
   s.add_development_dependency 'rake', '~> 12.0'
 
   s.add_development_dependency 'html-proofer', '~> 3.0'
