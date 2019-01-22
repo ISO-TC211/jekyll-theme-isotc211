@@ -1,5 +1,9 @@
 body.home {
   > main {
+    > .section > h2 {
+      @extend .section-title;
+    }
+
     > .news {
       .items {
         display: flex;

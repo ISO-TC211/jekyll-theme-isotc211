@@ -2,7 +2,8 @@
 // ===========
 
 body > header,
-body > main > section {
+body > main > section,
+body > main > .section {
   padding-bottom: 1em;
 }
 
