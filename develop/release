@@ -38,5 +38,5 @@ git fetch -t origin
 
 # Tag it and bag it.
 
-gem push jekyll-theme-isotc211-*.gem && git tag "$tag" &&
+gem push jekyll-theme-isotc211-*.gem && git tag "$tag"
 git push origin master && git push origin "$tag"
