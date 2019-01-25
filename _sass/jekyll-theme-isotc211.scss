@@ -20,6 +20,8 @@ $linkColorInverse: white;
   }
 }
 
+@import 'normalize';
+
 body {
   font-family: $bodyFontFamily;
 }
