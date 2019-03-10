@@ -16,12 +16,17 @@
             <span class="description">
               {{ site.tagline }}
             </span>
-            <span class="committee">
-              from ISO/TC 211
-            </span>
-            <span class="committee-full">
-              Geographic information/Geomatics
-            </span>
+
+            from
+
+            <a href="{{ site.committee.link }}">
+              <span class="committee">
+                ISO/TC {{ site.committee.id }}
+              </span>
+              <span class="committee-full">
+                {{ site.committee.name }}
+              </span>
+            </a>
           </p>
         </div>
 
