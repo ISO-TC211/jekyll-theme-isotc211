@@ -1,5 +1,10 @@
 === Changelog
 
+== 0.2.1
+
+Small fix in which home template allows site index page to specify content
+to go before the news section.
+
 == 0.2
 
 An update to overall layout that also fixes some issues on narrow screens.
