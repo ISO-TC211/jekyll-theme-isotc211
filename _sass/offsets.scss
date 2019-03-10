@@ -4,11 +4,11 @@
 $sideOffsetBase: 15vw;
 
 body > header {
-  margin: 0 $sideOffsetBase 0 $sideOffsetBase;
+  padding: 0 $sideOffsetBase 0 $sideOffsetBase;
 
   // Hanging logo on the left
   @media screen and (min-width: $bigscreenBreakpoint) {
-    margin: 0 $sideOffsetBase 0 calc(#{$sideOffsetBase} - #{$logoOffset});
+    padding: 0 $sideOffsetBase 0 calc(#{$sideOffsetBase} - #{$logoOffset});
   }
 }
 body > footer {

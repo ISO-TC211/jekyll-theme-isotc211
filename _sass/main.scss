@@ -26,11 +26,15 @@ body > main {
 body > header,
 body > main > section,
 body > main > .section {
-  padding-bottom: 1em;
+  padding-top: 1em;
+
+  > h2 {
+    @extend .section-title;
+  }
 }
 
 body {
-  $footerH: $logoSize + 40px;
+  $footerH: $logoSize + 20px;
 
   flex: 1;
 
@@ -43,6 +47,9 @@ body {
     flex-shrink: 0;
     font-size: 90%;
     line-height: 1.6;
+
+    background: whitesmoke;
+    box-shadow: 0 5px 20px -10px silver inset;
 
     padding-top: 1em;
 
@@ -64,6 +71,7 @@ body {
     }
 
     .powered-by {
+      flex: 1;
       width: $logoOffset;
 
       .powered-by-text {
@@ -114,6 +122,12 @@ body {
 
   > header {
     flex-shrink: 0;
+    background: whitesmoke;
+    margin-bottom: 1em;
+    padding-top: 0;
+    padding-bottom: .5em;
+
+    box-shadow: 0 -5px 20px -10px silver inset;
 
     .site-headline {
       .parent-org-reference {
@@ -144,11 +158,11 @@ body {
         flex-flow: column nowrap;
 
         h1 {
-          @include titleFontFamily(false);
+          @include titleFontFamily(true);
 
-          font-size: 270%;
+          font-size: 170%;
           margin: 0;
-          margin-top: .6em;
+          margin-top: 1.4em;
           margin-bottom: .2em;
           margin-left: -.12em;  // Visual alignment of capital G
           letter-spacing: -.03em;
@@ -161,12 +175,7 @@ body {
 
         p {
           margin: 0;
-          text-transform: uppercase;
-          letter-spacing: .04em;
-
-          font-size: 80%;
           line-height: 1.6;
-
           padding-bottom: 1em;
           flex: 1;
 
@@ -180,15 +189,13 @@ body {
         align-self: flex-end;
 
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row wrap;
         align-items: flex-start;
         margin: 0 0 0 .4em;
         padding: 0 0 1em 0;
         list-style: none;
 
-        font-size: 80%;
         line-height: 1.6;
-        text-transform: uppercase;
 
         li {
           margin: 0 0 0 1em;

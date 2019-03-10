@@ -1,4 +1,8 @@
 body.home {
+  > footer {
+    box-shadow: none;
+  }
+
   > main {
     padding-bottom: 0;
 
@@ -7,19 +11,28 @@ body.home {
     }
 
     > .news {
+
+      // Assuming it goes right before footer
+      box-shadow: 0 5px 20px -10px silver inset;
+      border-bottom: 0;
+      flex: 1;
+      background: whitesmoke;
+      margin-top: 1em;
+
       .items {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: stretch;
         overflow-y: auto;
+        margin-bottom: 1em;
       }
       .news-item-card {
         flex-basis: 20em;
         max-width: 90vw;
         border-radius: .5em;
         padding: 0 .75em;
-        border: 1px solid #f0f0f0;
+        background: #fff;
         margin-right: 1em;
 
         .title {
