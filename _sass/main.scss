@@ -49,11 +49,12 @@ body {
     .logo {
       width: $logoOffset;
       margin-left: 0;
+      display: inline-block;
 
       img {
         width: $logoSize;
         height: $logoSize;
-        display: block;
+        vertical-align: middle;
       }
     }
 
@@ -75,6 +76,7 @@ body {
 
     .legal {
       white-space: nowrap;
+      display: inline-block;
     }
 
     ul[role=nav] {
