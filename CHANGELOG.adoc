@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.2
+
+An update to overall layout that also fixes some issues on narrow screens.
+
 == 0.1.4
 
 Minor fixes including title bar phrasing and site branding typography.
