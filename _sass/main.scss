@@ -41,10 +41,15 @@ body {
 
   > footer {
     flex-shrink: 0;
-    height: $footerH;
-    margin-top: 1em;
     font-size: 90%;
     line-height: 1.6;
+
+    padding-top: 1em;
+
+    @media screen and (min-width: $bigscreenBreakpoint) {
+      height: $footerH;
+      padding-top: 0;
+    }
 
     .logo {
       width: $logoOffset;
