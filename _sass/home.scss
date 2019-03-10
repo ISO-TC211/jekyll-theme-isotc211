@@ -1,5 +1,7 @@
 body.home {
   > main {
+    padding-bottom: 0;
+
     > .section > h2 {
       @extend .section-title;
     }
