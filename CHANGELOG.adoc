@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.2.2
+
+Hide news block if site has no posts.
+
 == 0.2.1
 
 Small fix in which home template allows site index page to specify content
