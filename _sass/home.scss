@@ -35,6 +35,31 @@ body.home {
         background: #fff;
         margin-right: 1em;
 
+        &.news-item--with-illustration {
+          position: relative;
+
+          .title, .excerpt {
+            margin-left: 155px;
+          }
+
+          .illustration-container {
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 155px;
+            overflow: hidden;
+
+            img {
+              display: block;
+              width: 300px;
+              height: auto;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);
+            }
+          }
+        }
+
         .title {
           font-weight: normal;
           a {

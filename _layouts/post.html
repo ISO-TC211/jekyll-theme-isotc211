@@ -6,4 +6,10 @@ bodyClass: post
 
 <h2>{{ page.title }}</h2>
 
+{% if page.illustration %}
+  <div class="illustration">
+    <img src="{{ page.illustration | relative_url }}">
+  </div>
+{% endif %}
+
 {{ content }}

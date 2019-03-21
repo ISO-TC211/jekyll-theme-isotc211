@@ -13,7 +13,17 @@ bodyClass: home
 
     <div class="items">
       {% for post in site.posts %}
-        <article class="news-item-card">
+
+        <article class="
+            news-item-card
+            {% if post.illustration %}news-item--with-illustration{% endif %}">
+
+          {% if post.illustration %}
+            <div class="illustration-container">
+              <img src="{{ post.illustration | relative_url }}">
+            </div>
+          {% endif %}
+
           <h3 class="title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
           <div class="excerpt">{{ post.excerpt }}</div>
         </article>

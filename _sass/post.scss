@@ -1,0 +1,17 @@
+body.post {
+  > main {
+    margin-bottom: 1em;
+  }
+
+  .illustration {
+    margin-bottom: 1em;
+
+    img {
+      display: block;
+      width: 100%;
+      @media screen and (min-width: $bigscreenBreakpoint) {
+        width: 85%;
+      }
+    }
+  }
+}
