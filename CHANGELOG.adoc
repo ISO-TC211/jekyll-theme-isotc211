@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.2.3
+
+Support posts with illustrations.
+
 == 0.2.2
 
 Hide news block if site has no posts.
