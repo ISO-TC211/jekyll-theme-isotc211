@@ -1,5 +1,11 @@
 === Changelog
 
+== 0.2.4
+
+Now showing news entry date on publication page.
+
+Fixed an issue with newsroll layout on landing page with narrower viewports.
+
 == 0.2.3
 
 Support posts with illustrations.
