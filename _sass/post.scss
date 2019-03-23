@@ -3,6 +3,17 @@ body.post {
     margin-bottom: 1em;
   }
 
+  .meta {
+    color: lighten($textColor, 50);
+    margin-bottom: 2em;
+  }
+
+  h2 {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 200%;
+  }
+
   .illustration {
     margin-bottom: 1em;
 
