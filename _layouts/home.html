@@ -25,7 +25,11 @@ bodyClass: home
           {% endif %}
 
           <h3 class="title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+          <div class="meta">{{ post.date | date: '%B %d, %Y' }}</div>
+
           <div class="excerpt">{{ post.excerpt }}</div>
+
         </article>
       {% endfor %}
     </div>
