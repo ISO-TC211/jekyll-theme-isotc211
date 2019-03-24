@@ -13,11 +13,11 @@ body.home {
     > .news {
 
       // Assuming it goes right before footer
-      box-shadow: 0 5px 20px -10px silver inset;
       border-bottom: 0;
       flex: 1;
-      background: whitesmoke;
       margin-top: 1em;
+      background: $headerFooterBackgroundColor;
+      box-shadow: 0 5px 20px -10px $mainShadowColor inset;
 
       .items {
         display: flex;

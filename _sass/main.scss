@@ -48,8 +48,8 @@ body {
     font-size: 90%;
     line-height: 1.6;
 
-    background: whitesmoke;
-    box-shadow: 0 5px 20px -10px silver inset;
+    background: $headerFooterBackgroundColor;;
+    box-shadow: 0 5px 20px -10px $mainShadowColor inset;
 
     padding-top: 1em;
 
@@ -122,12 +122,12 @@ body {
 
   > header {
     flex-shrink: 0;
-    background: whitesmoke;
     margin-bottom: 1em;
     padding-top: 0;
     padding-bottom: .5em;
 
-    box-shadow: 0 -5px 20px -10px silver inset;
+    background: $headerFooterBackgroundColor;
+    box-shadow: 0 -5px 20px -10px $mainShadowColor inset;
 
     .site-headline {
       .parent-org-reference {
