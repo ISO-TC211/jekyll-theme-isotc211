@@ -33,6 +33,16 @@ body > main > .section {
   }
 }
 
+body > main,
+body.home > main > section,
+body.home > main > .section {
+  background: $mainSectionBackgroundColor;
+}
+
+body.home > main {
+  background: transparent;
+}
+
 body {
   $footerH: $logoSize + 20px;
 
@@ -42,6 +52,8 @@ body {
   flex-flow: column nowrap;
   align-items: stretch;
   margin-bottom: -$footerH;
+
+  background: linear-gradient(90deg, $isoTCColor 30px, transparent 20px);
 
   > footer {
     flex-shrink: 0;
@@ -122,8 +134,7 @@ body {
 
   > header {
     flex-shrink: 0;
-    margin-bottom: 1em;
-    padding-top: 0;
+    padding-top: .5em;
     padding-bottom: .5em;
 
     background: $headerFooterBackgroundColor;

@@ -16,7 +16,7 @@ body > footer {
 
   // Hanging logo on the right
   @media screen and (min-width: $bigscreenBreakpoint) {
-    padding: 0 calc(#{$sideOffsetBase} - #{$logoOffset}) 0 calc(#{$sideOffsetBase} - 1em);
+    padding: 0 calc(#{$sideOffsetBase} - #{$logoOffset}) 0 $sideOffsetBase;
   }
 }
 
