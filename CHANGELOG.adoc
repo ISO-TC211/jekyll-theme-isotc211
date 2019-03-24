@@ -1,5 +1,12 @@
 === Changelog
 
+== 0.3
+
+Improved general site aesthetics, adding color accent and making whitespace
+more consistent.
+
+Supporting showing ISO TC award notice and newsroll entry timestamps.
+
 == 0.2.4
 
 Now showing news entry date on publication page.
