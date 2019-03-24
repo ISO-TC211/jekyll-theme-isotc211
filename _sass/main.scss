@@ -55,6 +55,14 @@ body {
 
   background: linear-gradient(90deg, $isoTCColor 30px, transparent 20px);
 
+  > .awards {
+    color: grey;
+    margin: 0;
+    padding: 1em 15vw;
+    background: rgba(black, 0.1);
+    font-size: 80%;
+  }
+
   > footer {
     flex-shrink: 0;
     font-size: 90%;

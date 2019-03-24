@@ -43,6 +43,15 @@
       {{ content }}
     </main>
 
+    {% if site.awards %}
+      <p class="awards">
+        Winner of 
+        {% for award in site.awards %}
+          <span class="award"><a href="{{ award.path }}"
+            >{{ award.title }}</a>{%- unless forloop.last -%}, {% endunless %}</span>{% endfor %}.
+      </p>
+    {% endif %}
+
     <footer>
       <ul role="nav">
         {% for link in site.social.links %}
