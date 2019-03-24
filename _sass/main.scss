@@ -44,7 +44,9 @@ body.home > main {
 }
 
 body {
-  $footerH: $logoSize + 20px;
+  $footerLogoSize: 60px;
+  $footerH: $footerLogoSize + 20px;
+  $footerPoweredByLogoWidth: 100px;
 
   flex: 1;
 
@@ -73,19 +75,14 @@ body {
 
     padding-top: 1em;
 
-    @media screen and (min-width: $bigscreenBreakpoint) {
-      height: $footerH;
-      padding-top: 0;
-    }
-
     .logo {
       width: $logoOffset;
       margin-left: 0;
       display: inline-block;
 
       img {
-        width: $logoSize;
-        height: $logoSize;
+        width: $footerLogoSize;
+        height: $footerLogoSize;
         vertical-align: middle;
       }
     }
@@ -102,7 +99,7 @@ body {
       }
 
       img {
-        width: $logoSize;
+        width: $footerPoweredByLogoWidth;
         display: block;
       }
     }
@@ -130,11 +127,14 @@ body {
 
     @media screen and (min-width: $bigscreenBreakpoint) {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       align-items: center;
       justify-content: flex-end;
 
-      > * {
+      height: $footerH;
+      padding-top: 0;
+
+      .powered-by {
         margin-left: 2em;
       }
     }
