@@ -48,7 +48,7 @@
         <i class="fa fa-certificate icon"></i>
         Winner of 
         {% for award in site.awards %}
-          <span class="award"><a href="{{ award.path }}"
+          <span class="award">the <a href="{{ award.path }}"
             >{{ award.title }}</a>{%- unless forloop.last -%}, {% endunless %}</span>{% endfor %}.
       </p>
     {% endif %}
