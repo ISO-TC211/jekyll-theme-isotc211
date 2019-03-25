@@ -2,8 +2,8 @@
 
 $bodyFontFamily: Helvetica, sans-serif;
 $bigscreenBreakpoint: 900px;
-$logoOffset: 112px;
 $logoSize: 100px;
+$logoOffset: $logoSize + 12px;
 
 $isoTCColor: #0f6db3;
 $textColor: black;
