@@ -3,8 +3,8 @@
     {% if post.illustration %}news-item--with-illustration{% endif %}">
 
   {% if post.illustration %}
-    <a class="illustration-container" href="{{ post.url | relative_url }}">
-      <img src="{{ post.illustration | relative_url }}">
+    <a class="illustration-container" href="{{ post.url | relative_url }}"
+      style="background-image: url({{ post.illustration | relative_url }});">
     </a>
   {% endif %}
 
