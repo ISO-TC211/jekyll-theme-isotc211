@@ -1,0 +1,129 @@
+// Asciidoctor-generated markup
+// ============================
+
+@mixin asciidoc-markup() {
+
+  // Code listing
+
+  .paragraph code {
+    word-break: break-word;
+  }
+
+  // Generic block title
+
+  .admonitionblock,
+  .listingblock,
+  .imageblock {
+    .title {
+      text-transform: uppercase;
+      font-size: 12px;
+      border-radius: .25em;
+      background-color: $textColor;
+      color: white;
+      font-weight: bold;
+      padding: .3em .6em .15em .6em;
+    }
+  }
+
+  // Specific blocks
+
+  .admonitionblock,
+  .listingblock {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .admonitionblock.warning {
+    td.icon .title {
+      background-color: $warningColor;
+    }
+  }
+  .admonitionblock.important {
+    td.icon .title {
+      background-color: $importantColor;
+    }
+  }
+
+  .imageblock {
+    .title {
+      background-color: $accentColor;
+      color: white;
+    }
+  }
+
+  .listingblock {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .title {
+      align-self: flex-start;
+      background-color: $codeListingBorderColor;
+      color: white;
+      border-radius: 0;
+    }
+
+    .content {
+      align-self: stretch;
+
+      pre {
+        margin: 0;
+      }
+    }
+  }
+
+  .admonitionblock {
+    overflow-x: scroll;
+
+    table:first-child {
+      margin-top: 0;
+    }
+    table:last-child {
+      margin-bottom: 0;
+    }
+
+    td.icon {
+      vertical-align: top;
+      padding-left: 0;
+      padding-right: 1em;
+      font-size: 90%;
+    }
+
+    .title {
+      background-color: $linkColor;
+      color: white;
+    }
+
+    .content {
+      font-size: 90%;
+
+      .title {
+        background: transparent;
+        color: $textColor;
+        padding-left: 0;
+      }
+
+      .listingblock pre {
+        font-size: 100%;
+      }
+
+      > div:first-child {
+        > :first-child {
+          margin-top: 0;
+        }
+      }
+      > div:last-child {
+        > :last-child {
+          margin-bottom: 0;
+        }
+        &.ulist {
+          li:first-child > :first-child {
+            margin-top: 0;
+          }
+          li:last-child > :last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

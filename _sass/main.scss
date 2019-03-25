@@ -1,27 +1,10 @@
-// Asciidoctor-generated markup
-// ============================
-
-body > main {
-  .admonitionblock {
-    margin-bottom: 1em;
-
-    td.icon {
-      vertical-align: top;
-      padding-right: 1em;
-      font-weight: bold;
-    }
-    .content {
-      word-break: break-word;
-    }
-  }
-  .paragraph code {
-    word-break: break-word;
-  }
-}
-
-
 // Main layout
 // ===========
+
+body > main {
+  font-size: 18px;
+  @include asciidoc-markup();
+}
 
 body > header,
 body > main > section,

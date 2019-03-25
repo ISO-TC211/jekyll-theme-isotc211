@@ -8,6 +8,12 @@ $logoSize: 100px;
 $isoTCColor: #0f6db3;
 $textColor: black;
 
+$warningColor: red;
+$importantColor: orange;
+$accentColor: $isoTCColor;
+
+$codeListingBorderColor: silver;
+
 $mainShadowColor: rgba(black, 0.4);
 $headerFooterBackgroundColor: rgba(black, 0.05);
 $mainSectionBackgroundColor: rgba(white, 0.8);
@@ -65,6 +71,7 @@ html {
   position: relative;
 }
 
+@import 'adoc-markup';
 @import 'offsets';
 @import 'main';
 @import 'home';
