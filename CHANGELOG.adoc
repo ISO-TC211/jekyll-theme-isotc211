@@ -1,5 +1,11 @@
 === Changelog
 
+== 0.3.1
+
+Improved typography legibility & added more extensive support for AsciiDoc-generated blocks.
+
+Corrected minor issues with newsroll carousel and awards banner.
+
 == 0.3
 
 Improved general site aesthetics, adding color accent and making whitespace
