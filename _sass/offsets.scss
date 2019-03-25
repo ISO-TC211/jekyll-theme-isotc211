@@ -39,7 +39,11 @@ body.home > main > .news {
 
 body.post, body.page {
   > main > * {
-    margin-left: $sideOffsetBase;
-    margin-right: $sideOffsetBase;
+    padding-left: $sideOffsetBase;
+    padding-right: $sideOffsetBase / 2;
+
+    @media screen and (min-width: $bigscreenBreakpoint) {
+      padding-right: $sideOffsetBase;
+    }
   }
 }

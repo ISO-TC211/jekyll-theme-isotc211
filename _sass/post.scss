@@ -1,27 +1,34 @@
-body.post {
+body.post,
+body.page {
   > main {
     padding-bottom: 1em;
-  }
 
-  .meta {
-    color: lighten($textColor, 50);
-    margin-bottom: 2em;
-  }
+    h1 {
+      margin-bottom: 0;
+      font-weight: normal;
+      font-size: 200%;
+    }
 
-  h2 {
-    margin-bottom: 0;
-    font-weight: normal;
-    font-size: 200%;
-  }
+    .lead {
+      background-color: rgba(0, 0, 0, 0.05);
+      font-size: 120%;
+      margin-bottom: 1em;
+    }
 
-  .illustration {
-    margin-bottom: 1em;
+    .meta {
+      color: lighten($textColor, 50);
+      margin-bottom: 2em;
+    }
 
-    img {
-      display: block;
-      width: 100%;
-      @media screen and (min-width: $bigscreenBreakpoint) {
-        width: 85%;
+    .illustration {
+      margin-bottom: 1em;
+
+      img {
+        display: block;
+        width: 100%;
+        @media screen and (min-width: $bigscreenBreakpoint) {
+          width: 85%;
+        }
       }
     }
   }
