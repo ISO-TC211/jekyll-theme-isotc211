@@ -30,7 +30,10 @@
         <ul role="nav">
           {% assign nav_items = page.nav_items | default: layout.nav_items %}
           {% for item in nav_items %}
-            <li><a href="{{ site.nav[item].url | relative_url }}">{{ site.nav[item].title }}</a>
+            {% assign item_data = site.nav.items | where_exp: "nav_item", "nav_item.id == item" | first %}
+            {% if item_data %}
+              <li><a href="{{ item_data.url | relative_url }}">{{ item_data.title }}</a>
+            {% endif %}
           {% endfor %}
         </ul>
       </h1>

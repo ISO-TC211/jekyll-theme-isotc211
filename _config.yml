@@ -23,14 +23,18 @@ permalink: /blog/:month-:day-:year/:title/
 #     - url: https://www.linkedin.com/groups/…
 
 # Main site navigation.
-# Layouts and pages can include nav_items array referring to link IDs in frontmatter
+# Layouts and pages can specify priority nav items
+# using frontmatter key nav_items
+# pointing to an array listing nav item IDs.
 nav:
-  home:
-    url: /
-    title: Home
-  about:
-    url: /about
-    title: About
+  items:
+    - id: home
+      url: /
+      title: Home
+      description: Standard resources & latest news
+    - id: about
+      url: /about
+      title: About
 
 # Footer navigation
 footer_nav:
