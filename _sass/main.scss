@@ -169,13 +169,11 @@ body {
         flex-flow: column nowrap;
 
         .title {
-          @include titleFontFamily(false);
-
-          font-size: 170%;
+          font-size: 150%;
           margin: 0;
           margin-bottom: .5em;
           margin-left: -.12em;  // Visual alignment of capital G
-          letter-spacing: -.04em;
+          letter-spacing: -.025em;
 
           a {
             text-decoration: none;
@@ -184,8 +182,6 @@ body {
         }
 
         .committee-widget {
-          flex: 1;
-
           display: flex;
           flex-flow: row nowrap;
 
@@ -193,11 +189,6 @@ body {
           line-height: 1.5;
           margin: 3.3em 0 0 0;
           padding-bottom: 1.5em;
-          height: 1.5em;
-
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
 
           text-decoration: none;
 
@@ -215,6 +206,7 @@ body {
             padding-left: .8em;
             // Corrects visual padding inconsistency of unclear origin
 
+            white-space: nowrap;
             background: black;
             border: 1px solid black;
             font-weight: bold;
@@ -252,6 +244,7 @@ body {
       @media screen and (min-width: $bigscreenBreakpoint) {
         display: flex;
         flex-flow: row nowrap;
+        align-items: flex-start;
 
         .parent-org-reference {
           display: flex;
