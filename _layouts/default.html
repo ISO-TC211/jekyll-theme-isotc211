@@ -5,29 +5,26 @@
 
   <body class="{{ page.bodyClass | default: layout.bodyClass }}">
     <header>
-      <div class="site-headline">
+      <h1 class="site-headline">
         <div class="parent-org-reference">
-          <a href="/" class="logo-link"><img src="{{ "/assets/logo-iso-noninverted.svg" | relative_url }}"></a>
+          <a href="/" class="logo-link">
+            <img src="{{ "/assets/logo-iso-noninverted.svg" | relative_url }}" alt="ISO">
+          </a>
         </div>
 
         <div class="site-title">
-          <h1><a href="/">{{ site.title_html | default: site.title }}</a></h1>
-          <p>
-            <span class="description">
-              {{ site.tagline }}
+          <a href="{{ site.committee.link }}" class="committee-widget">
+            <span class="committee-id">
+              TC {{ site.committee.id }}
             </span>
+            <span class="committee-name">
+              {{ site.committee.name }}
+            </span>
+          </a>
 
-            from
-
-            <a href="{{ site.committee.link }}">
-              <span class="committee">
-                ISO/TC {{ site.committee.id }}
-              </span>
-              <span class="committee-full">
-                {{ site.committee.name }}
-              </span>
-            </a>
-          </p>
+          <div class="title">
+            <a href="/">{{ site.title_html | default: site.title }}</a>
+          </div>
         </div>
 
         <ul role="nav">
@@ -36,7 +33,7 @@
             <li><a href="{{ site.nav[item].url | relative_url }}">{{ site.nav[item].title }}</a>
           {% endfor %}
         </ul>
-      </div>
+      </h1>
     </header>
 
     <main>
