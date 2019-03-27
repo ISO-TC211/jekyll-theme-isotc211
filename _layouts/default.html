@@ -43,7 +43,7 @@
       {{ content }}
     </main>
 
-    {% if site.awards %}
+    {% if site.awards and page.hide_awards != true %}
       <p class="awards">
         <i class="fa fa-certificate icon"></i>
         Winner of 
