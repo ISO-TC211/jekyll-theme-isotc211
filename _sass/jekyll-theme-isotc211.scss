@@ -12,7 +12,8 @@ $warningColor: red;
 $importantColor: orange;
 $accentColor: $isoTCColor;
 
-$codeListingBorderColor: silver;
+$codeListingBorderColor: lighten($textColor, 70);
+$codeListingBackgroundColor: rgba($textColor, 0.03);
 
 $mainShadowColor: rgba(black, 0.4);
 $headerFooterBackgroundColor: rgba(black, 0.05);
