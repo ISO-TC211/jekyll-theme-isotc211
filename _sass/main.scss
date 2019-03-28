@@ -58,7 +58,7 @@ body {
     line-height: 1.6;
 
     background: $headerFooterBackgroundColor;;
-    box-shadow: 0 5px 20px -10px $mainShadowColor inset;
+    box-shadow: 0 10px 20px -20px $mainShadowColor inset;
 
     padding-top: 1em;
 
@@ -133,7 +133,7 @@ body {
     padding-bottom: .5em;
 
     background: $headerFooterBackgroundColor;
-    box-shadow: 0 -5px 20px -10px $mainShadowColor inset;
+    box-shadow: 0 -10px 20px -20px $mainShadowColor inset;
 
     .site-headline {
       margin: 0;

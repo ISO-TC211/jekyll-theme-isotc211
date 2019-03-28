@@ -16,7 +16,7 @@ body.home {
       flex: 1;
       border-bottom: 0;
       background: $headerFooterBackgroundColor;
-      box-shadow: 0 5px 20px -10px $mainShadowColor inset;
+      box-shadow: 0 10px 20px -20px $mainShadowColor inset;
 
       .items {
         display: flex;
