@@ -250,10 +250,8 @@ body {
           display: flex;
         }
       }
-    }
 
-    @media screen and (max-width: $bigscreenBreakpoint) {
-      .site-headline {
+      @media screen and (max-width: $bigscreenBreakpoint) {
         .parent-org-reference .logo-link img {
           visibility: hidden;
         }
