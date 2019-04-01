@@ -11,6 +11,8 @@ body > main a {
 // Main layout
 // ===========
 
+$stripeWidth: 30px;
+
 body > main {
   font-size: 18px;
   @include asciidoc-markup();
@@ -48,7 +50,7 @@ body {
   align-items: stretch;
   margin-bottom: -$footerH;
 
-  background: linear-gradient(90deg, $isoTCColor 30px, transparent 20px);
+  background: linear-gradient(90deg, $isoTCColor $stripeWidth, transparent 20px);
 
   > .awards {
     color: grey;
