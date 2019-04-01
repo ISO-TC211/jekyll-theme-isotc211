@@ -1,3 +1,13 @@
+a {
+  text-decoration: none;
+  color: $textColor;
+}
+
+body > main a {
+  text-decoration: underline;
+  color: $linkColor;
+}
+
 // Main layout
 // ===========
 
@@ -174,11 +184,6 @@ body {
           margin-bottom: .5em;
           margin-left: -.12em;  // Visual alignment of capital G
           letter-spacing: -.025em;
-
-          a {
-            text-decoration: none;
-            color: $textColor;
-          }
         }
 
         .committee-widget {
