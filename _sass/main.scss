@@ -140,7 +140,6 @@ body {
   > header {
     flex-shrink: 0;
     padding-top: .5em;
-    padding-bottom: .5em;
 
     background: $headerFooterBackgroundColor;
     box-shadow: 0 -10px 20px -20px $mainShadowColor inset;
@@ -180,68 +179,58 @@ body {
 
         .title {
           font-size: 150%;
+          font-weight: normal;
           margin: 0;
-          margin-bottom: .5em;
+          margin-bottom: 1em;
           margin-left: -.12em;  // Visual alignment of capital G
           letter-spacing: -.025em;
         }
 
         .committee-widget {
-          display: flex;
-          flex-flow: row nowrap;
-
           font-size: 80%;
           line-height: 1.5;
           margin: 3.3em 0 0 0;
           padding-bottom: 1.5em;
 
-          text-decoration: none;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
 
-          &:link, &:visited {
-            color: white;
+          .widget-group {
+            display: flex;
+            flex-flow: row nowrap;
+            margin-bottom: 1px;
           }
 
-          .committee-id, .committee-name {
+          .widget-item {
+            margin-left: 2px;
             padding: .3em .6em;
             box-shadow: 1px 1px 2px rgba(black, 0.1);
-            height: 100%;
+            border-width: 1px;
+            border-style: solid;
+
+            background: lighten(desaturate($isoTCColor, 50), 20);
+            border-color: lighten(desaturate($isoTCColor, 50), 20);
+            color: white;
           }
 
           .committee-id {
             padding-left: .8em;
             // Corrects visual padding inconsistency of unclear origin
 
+            margin-left: 0;
+
             white-space: nowrap;
             background: black;
-            border: 1px solid black;
+            border-color: black;
             font-weight: bold;
+            color: white;
           }
+
           .committee-name {
             background: $isoTCColor;
-            border: 1px solid $isoTCColor;
-            margin-left: 2px;
-          }
-        }
-      }
-
-      ul[role=nav] {
-        align-self: flex-end;
-
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
-        margin: 0 0 0 .4em;
-        padding: 0 0 1em 0;
-        list-style: none;
-
-        line-height: 1.6;
-
-        li {
-          margin: 0 0 0 1em;
-          padding: 0;
-          a {
-            text-decoration: none;
-            font-weight: bold;
+            border-color: $isoTCColor;
+            color: white;
           }
         }
       }
@@ -260,6 +249,109 @@ body {
         .parent-org-reference .logo-link img {
           visibility: hidden;
         }
+      }
+    }
+  }
+
+  > header > nav.priority-nav {
+    ul {
+      padding: 0;
+      margin: 0;
+
+      margin-left: $logoOffset;
+
+      padding-left: 1.2em;
+      border-left: 1px solid silver;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      padding-bottom: 1em;
+
+      li {
+        display: inline;
+        margin-right: 1em;
+        overflow: hidden;
+
+        a {
+          text-transform: uppercase;
+          font-size: 80%;
+          letter-spacing: -.01em;
+        }
+      }
+    }
+  }
+
+  > header > nav.expandable-nav {
+    display: none;
+  }
+
+  &.with-expandable-nav {
+    // Enabled by JS.
+
+    > header {
+      transition:
+        background .5s linear,
+        padding-bottom .5s linear,
+        height .5s linear;
+
+      position: relative;
+      overflow: hidden;
+    }
+    > main > section, > main > .section {
+      transition: background .5s linear;
+    }
+
+    &.with-expanded-nav {
+      > header {
+        box-shadow: 0 5px 50px -20px rgba(black, 0.4);
+        background: unset;
+        padding-bottom: 1.5em;
+
+        // XXX: Set from JS, roughly:
+        // expandable-nav height - priority-nav height + existing header padding
+        padding-bottom: 4em;
+
+        nav.priority-nav {
+          visibility: hidden;
+        }
+
+        nav.expandable-nav {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 15vw;
+        }
+      }
+      > main > section, > main > .section {
+        background: rgba(black, 0.1);
+      }
+    }
+
+    .nav-expand-trigger {
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // when page doesn’t specify priority nav:
+    > header > .nav-expand-trigger {
+    }
+    > header > nav > .nav-expand-trigger {
+      display: none;
+    }
+
+    // when it does:
+    &.with-priority-nav {
+      > header > .nav-expand-trigger {
+        display: none;
+      }
+      > header > nav > .nav-expand-trigger {
+        position: absolute;
+        left: 0;
+        height: 2em;
+        display: flex;
       }
     }
   }

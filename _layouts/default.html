@@ -5,7 +5,7 @@
 
   <body class="{{ page.bodyClass | default: layout.bodyClass }}">
     <header>
-      <h1 class="site-headline">
+      <div class="site-headline">
         <div class="parent-org-reference">
           <a href="/" class="logo-link">
             <img src="{{ "/assets/logo-iso-noninverted.svg" | relative_url }}" alt="ISO">
@@ -13,30 +13,63 @@
         </div>
 
         <div class="site-title">
-          <a href="{{ site.committee.link }}" class="committee-widget">
-            <span class="committee-id">
-              TC {{ site.committee.id }}
+          <span class="committee-widget">
+            <span class="widget-group">
+              <span class="widget-item committee-id">
+                TC {{ site.committee.id }}
+              </span>
+              <span class="widget-item committee-name">
+                {{ site.committee.name }}
+              </span>
             </span>
-            <span class="committee-name">
-              {{ site.committee.name }}
-            </span>
-          </a>
 
-          <div class="title">
-            <a href="/">{{ site.title_html | default: site.title }}</a>
-          </div>
-        </div>
-
-        <ul role="nav">
-          {% assign nav_items = page.nav_items | default: layout.nav_items %}
-          {% for item in nav_items %}
-            {% assign item_data = site.nav.items | where_exp: "nav_item", "nav_item.id == item" | first %}
-            {% if item_data %}
-              <li><a href="{{ item_data.url | relative_url }}">{{ item_data.title }}</a>
+            {% if site.committee.links %}
+              <span class="widget-group committee-menu">
+                {% for link in site.committee.links %}
+                  <a href="{{ link.url }}" class="widget-item">
+                    {{ link.title }}
+                  </a>
+                {% endfor %}
+              </span>
             {% endif %}
+          </span>
+
+          <h1 class="title">
+            <a href="/">{{ site.title_html | default: site.title }}</a>
+          </h1>
+        </div>
+      </div>
+
+      {% assign nav_items = page.nav_items | default: layout.nav_items %}
+      {% if nav_items %}
+        <nav class="priority-nav">
+          <ul>
+            {% for item in nav_items %}
+              {% assign item_data = site.nav.items | where_exp: "nav_item", "nav_item.id == item" | first %}
+              {% if item_data %}
+                <li>
+                  <a href="{{ item_data.url }}">{{ item_data.title }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+
+      {% if site.nav %}
+        <nav class="expandable-nav">
+          <ul>
+          {% for item in site.nav.items %}
+            <li>
+              <a href="{{ item.url }}">{{ item.title }}</a>
+              {% if item.description %}
+                <p class="desc">{{ item.description }}</p>
+              {% endif %}
+            </li>
           {% endfor %}
-        </ul>
-      </h1>
+          </ul>
+        </nav>
+      {% endif %}
     </header>
 
     <main>

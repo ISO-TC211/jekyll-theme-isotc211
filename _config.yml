@@ -22,6 +22,18 @@ permalink: /blog/:month-:day-:year/:title/
 #     - url: https://www.facebook.com/groups/…
 #     - url: https://www.linkedin.com/groups/…
 
+# committee:
+#   id: <number>
+#   name: <full name>
+#   home: <committee’s external home page URL>
+#   links:
+#     - url: /about
+#       title: About
+#     - url: /strategic-policy
+#       title: Strategic Policy Statement
+#     - url: /faq
+#       title: FAQ
+
 # Main site navigation.
 # Layouts and pages can specify priority nav items
 # using frontmatter key nav_items
