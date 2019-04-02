@@ -296,21 +296,25 @@ body {
     $expandTransitionFunc: ease-out;
 
     > header {
-      will-change: opacity, box-shadow, height;
+      will-change: background, opacity, box-shadow, height;
       transition:
-        padding-bottom $expandTransitionTime $expandTransitionFunc,
-        box-shadow $expandTransitionTime $expandTransitionFunc,
-        height $expandTransitionTime $expandTransitionFunc;
+        color $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
+        background $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
+        padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
+        box-shadow $expandTransitionTime $expandTransitionFunc 0s,
+        height $expandTransitionTime $expandTransitionFunc 0s;
 
       position: relative;
       overflow: hidden;
+
+      padding-bottom: 0;  // JS relies on this value
     }
 
-    // TOO SLOW
-    // > main > section, > main > .section {
-    //   will-change: background;
-    //   transition: background $expandTransitionTime $expandTransitionFunc;
-    // }
+    > main {
+      will-change: transform;
+      transition:
+        transform $expandTransitionTime $expandTransitionFunc;
+    }
 
     nav.expandable-nav {
       transition: none;
@@ -345,21 +349,28 @@ body {
 
     &.with-expanded-nav {
       > header {
+        transition:
+          color $expandTransitionTime $expandTransitionFunc 0s,
+          background $expandTransitionTime $expandTransitionFunc 0s,
+          padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
+          box-shadow $expandTransitionTime $expandTransitionFunc 0s,
+          height $expandTransitionTime $expandTransitionFunc 0s;
+
         box-shadow: 0 5px 50px -20px rgba(black, 0.4);
-        background: unset;
+        background: $isoTCColor;
+        color: white;
         padding-bottom: 1.5em;
+        z-index: 2;
 
         nav.priority-nav {
           opacity: 0;
         }
         nav.expandable-nav {
+          will-change: opacity;
           transition: opacity $expandTransitionTime $expandTransitionFunc;
           transition-delay: $expandTransitionTime;
           opacity: 1;
         }
-      }
-      > main > section, > main > .section {
-        background: rgba(black, 0.1);
       }
       button.nav-expand-trigger {
         .fa-times { display: inline-block; }
