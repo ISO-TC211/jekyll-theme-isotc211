@@ -7,8 +7,8 @@ body.with-expandable-nav {
   > header {
     will-change: background, opacity, box-shadow, height;
     transition:
-      color $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
-      background $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
+      color $expandTransitionTime $expandTransitionFunc 0s,
+      background $expandTransitionTime $expandTransitionFunc 0s,
       padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
       box-shadow $expandTransitionTime $expandTransitionFunc 0s,
       height $expandTransitionTime $expandTransitionFunc 0s;
@@ -22,9 +22,9 @@ body.with-expandable-nav {
       .widget-item {
         will-change: color, background, border;
         transition:
-          color $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
-          background $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
-          border $expandTransitionTime $expandTransitionFunc $expandTransitionTime;
+          color $expandTransitionTime $expandTransitionFunc 0s,
+          background $expandTransitionTime $expandTransitionFunc 0s,
+          border $expandTransitionTime $expandTransitionFunc 0s;
       }
     }
   }
@@ -68,18 +68,18 @@ body.with-expandable-nav {
 
   &.with-expanded-nav {
     > header {
-      transition:
-        color $expandTransitionTime $expandTransitionFunc 0s,
-        background $expandTransitionTime $expandTransitionFunc 0s,
-        padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
-        box-shadow $expandTransitionTime $expandTransitionFunc 0s,
-        height $expandTransitionTime $expandTransitionFunc 0s;
-
       box-shadow: 0 5px 50px -20px rgba(black, 0.4);
       background: $isoTCColor;
       color: white;
       padding-bottom: 1.5em;
       z-index: 2;
+
+      .parent-org-reference {
+        .logo-link img {
+          -webkit-filter: invert(1);
+          filter: invert(1);
+        }
+      }
 
       nav.priority-nav {
         opacity: 0;
@@ -87,7 +87,7 @@ body.with-expandable-nav {
       nav.expandable-nav {
         will-change: opacity;
         transition: opacity $expandTransitionTime $expandTransitionFunc;
-        transition-delay: $expandTransitionTime;
+        transition-delay: 0s;
         display: block;
         opacity: 1;
       }
@@ -97,11 +97,6 @@ body.with-expandable-nav {
           box-shadow: none;
           border: 1px solid white;
           border-left-color: $isoTCColor;
-
-          transition:
-            color $expandTransitionTime $expandTransitionFunc 0s,
-            background $expandTransitionTime $expandTransitionFunc 0s,
-            border $expandTransitionTime $expandTransitionFunc 0s;
 
           &.committee-id {
             background: white;
