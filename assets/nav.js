@@ -59,10 +59,7 @@
           this.mainEl.getBoundingClientRect().top +
           document.documentElement.scrollTop -
           (document.documentElement.clientTop || document.body.clientTop || 0);
-        this.mainEl.style.top = `${mainTopOffset}px`;
-        this.mainEl.style.position = 'absolute';
-        this.mainEl.style.zIndex = '0';
-        this.footerEl.style.display = 'none';
+        this.mainEl.style.marginTop = `${mainTopOffset}px`;
 
         this.containerEl.classList.add(this.expandedHtmlClass);
 
@@ -72,6 +69,10 @@
 
         this.headerEl.style.paddingBottom = `${heightDifference}px`;
         this.headerEl.style.zIndex = '2';
+        this.headerEl.style.position = 'absolute';
+        this.headerEl.style.top = '0px';
+        this.headerEl.style.left = '0px';
+        this.headerEl.style.right = '0px';
 
       } else {
         this.containerEl.classList.remove(this.expandedHtmlClass);
@@ -80,11 +81,9 @@
         window.clearTimeout(this.animationTimeout);
 
         this.animationTimeout = window.setTimeout(() => {
-          this.mainEl.style.removeProperty('z-index');
-          this.mainEl.style.removeProperty('position');
-          this.mainEl.style.removeProperty('top');
+          this.mainEl.style.removeProperty('margin-top');
           this.headerEl.style.removeProperty('z-index');
-          this.footerEl.style.removeProperty('display');
+          this.headerEl.style.removeProperty('position');
         }, 1000);
       }
     }

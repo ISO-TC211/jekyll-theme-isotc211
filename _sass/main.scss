@@ -262,9 +262,6 @@ body {
 
       margin-left: $logoOffset;
 
-      padding-left: 1.2em;
-      border-left: 1px solid black;
-
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -287,96 +284,6 @@ body {
 
   > header > nav.expandable-nav {
     display: none;
-  }
-
-  &.with-expandable-nav {
-    // Enabled by JS.
-
-    $expandTransitionTime: .25s;
-    $expandTransitionFunc: ease-out;
-
-    > header {
-      will-change: background, opacity, box-shadow, height;
-      transition:
-        color $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
-        background $expandTransitionTime $expandTransitionFunc $expandTransitionTime,
-        padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
-        box-shadow $expandTransitionTime $expandTransitionFunc 0s,
-        height $expandTransitionTime $expandTransitionFunc 0s;
-
-      position: relative;
-      overflow: hidden;
-
-      padding-bottom: 0;  // JS relies on this value
-    }
-
-    > main {
-      will-change: transform;
-      transition:
-        transform $expandTransitionTime $expandTransitionFunc;
-    }
-
-    nav.expandable-nav {
-      transition: none;
-      transition-delay: 0;
-      opacity: 0;
-      display: block;
-      position: absolute;
-      bottom: 20px;
-
-      @media screen and (min-width: $bigscreenBreakpoint) {
-        left: 15vw;
-      }
-    }
-
-    button.nav-expand-trigger {
-      border: none;
-      background: none;
-      color: white;
-
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      left: 0;
-      top: 3.3em;
-      height: 1.8em;
-      width: $stripeWidth;
-      display: flex;
-
-      .fa-times { display: none; }
-    }
-
-    &.with-expanded-nav {
-      > header {
-        transition:
-          color $expandTransitionTime $expandTransitionFunc 0s,
-          background $expandTransitionTime $expandTransitionFunc 0s,
-          padding-bottom $expandTransitionTime $expandTransitionFunc 0s,
-          box-shadow $expandTransitionTime $expandTransitionFunc 0s,
-          height $expandTransitionTime $expandTransitionFunc 0s;
-
-        box-shadow: 0 5px 50px -20px rgba(black, 0.4);
-        background: $isoTCColor;
-        color: white;
-        padding-bottom: 1.5em;
-        z-index: 2;
-
-        nav.priority-nav {
-          opacity: 0;
-        }
-        nav.expandable-nav {
-          will-change: opacity;
-          transition: opacity $expandTransitionTime $expandTransitionFunc;
-          transition-delay: $expandTransitionTime;
-          opacity: 1;
-        }
-      }
-      button.nav-expand-trigger {
-        .fa-times { display: inline-block; }
-        .fa-bars { display: none; }
-      }
-    }
   }
 
   > main {
