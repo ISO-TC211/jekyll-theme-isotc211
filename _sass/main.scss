@@ -292,17 +292,55 @@ body {
   &.with-expandable-nav {
     // Enabled by JS.
 
+    $expandTransitionTime: .25s;
+    $expandTransitionFunc: ease-out;
+
     > header {
+      will-change: opacity, box-shadow, height;
       transition:
-        background .5s linear,
-        padding-bottom .5s linear,
-        height .5s linear;
+        padding-bottom $expandTransitionTime $expandTransitionFunc,
+        box-shadow $expandTransitionTime $expandTransitionFunc,
+        height $expandTransitionTime $expandTransitionFunc;
 
       position: relative;
       overflow: hidden;
     }
-    > main > section, > main > .section {
-      transition: background .5s linear;
+
+    // TOO SLOW
+    // > main > section, > main > .section {
+    //   will-change: background;
+    //   transition: background $expandTransitionTime $expandTransitionFunc;
+    // }
+
+    nav.expandable-nav {
+      transition: none;
+      transition-delay: 0;
+      opacity: 0;
+      display: block;
+      position: absolute;
+      bottom: 20px;
+
+      @media screen and (min-width: $bigscreenBreakpoint) {
+        left: 15vw;
+      }
+    }
+
+    button.nav-expand-trigger {
+      border: none;
+      background: none;
+      color: white;
+
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 3.3em;
+      height: 1.8em;
+      width: $stripeWidth;
+      display: flex;
+
+      .fa-times { display: none; }
     }
 
     &.with-expanded-nav {
@@ -311,49 +349,21 @@ body {
         background: unset;
         padding-bottom: 1.5em;
 
-        // XXX: Set from JS, roughly:
-        // expandable-nav height - priority-nav height + existing header padding
-        padding-bottom: 4em;
-
         nav.priority-nav {
-          visibility: hidden;
+          opacity: 0;
         }
-
         nav.expandable-nav {
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 15vw;
+          transition: opacity $expandTransitionTime $expandTransitionFunc;
+          transition-delay: $expandTransitionTime;
+          opacity: 1;
         }
       }
       > main > section, > main > .section {
         background: rgba(black, 0.1);
       }
-    }
-
-    .nav-expand-trigger {
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
-    }
-
-    // when page doesn’t specify priority nav:
-    > header > .nav-expand-trigger {
-    }
-    > header > nav > .nav-expand-trigger {
-      display: none;
-    }
-
-    // when it does:
-    &.with-priority-nav {
-      > header > .nav-expand-trigger {
-        display: none;
-      }
-      > header > nav > .nav-expand-trigger {
-        position: absolute;
-        left: 0;
-        height: 2em;
-        display: flex;
+      button.nav-expand-trigger {
+        .fa-times { display: inline-block; }
+        .fa-bars { display: none; }
       }
     }
   }
