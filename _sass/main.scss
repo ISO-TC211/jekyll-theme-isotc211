@@ -251,9 +251,11 @@ body {
             .widget-item {
               @media screen and (max-width: $bigscreenBreakpoint) {
                 flex-basis: 50%;
-
                 &.home {
                   flex: 0;
+                  &:only-child {
+                    flex: 1;
+                  }
                 }
               }
             }
