@@ -1,5 +1,14 @@
 === Changelog
 
+== 0.4
+
+Redesigned site header. Added header menu (triggered by hamburger icon)
+with links for navigation across the site and ISO TC pages.
+
+Added news (blog) index page.
+
+Fixed some minor layout issues with the site.
+
 == 0.3.1
 
 Improved typography legibility & added more extensive support for AsciiDoc-generated blocks.
