@@ -152,7 +152,7 @@ body {
       font-size: 100%;
       font-weight: normal;
 
-      .parent-org-reference {
+      > .parent-org-reference {
         display: none;
 
         flex-flow: column nowrap;
@@ -235,6 +235,17 @@ body {
             flex-flow: row wrap;
           }
 
+          .widget-item.parent-org-reference {
+            display: inline;
+            background: #e30b1f;
+            border-color: #e30b1f;
+            font-weight: bold;
+
+            @media screen and (min-width: $bigscreenBreakpoint) {
+              display: none;
+            }
+          }
+
           .committee-name {
             background: $isoTCColor;
             border-color: $isoTCColor;
@@ -248,7 +259,7 @@ body {
         flex-flow: row nowrap;
         align-items: flex-start;
 
-        .parent-org-reference {
+        > .parent-org-reference {
           display: flex;
         }
       }
