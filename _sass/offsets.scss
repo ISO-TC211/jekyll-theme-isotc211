@@ -37,7 +37,7 @@ body.home > main > .news {
   }
 }
 
-body.post, body.page {
+body.post, body.page, body.post-index {
   > main > * {
     padding-left: $sideOffsetBase;
     padding-right: $sideOffsetBase / 2;
