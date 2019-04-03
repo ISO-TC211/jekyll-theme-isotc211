@@ -26,13 +26,22 @@
               </span>
             </span>
 
-            {% if site.committee.links %}
+            {% if site.committee.home or site.committee.links %}
               <span class="widget-group committee-menu">
-                {% for link in site.committee.links %}
-                  <a href="{{ link.url }}" class="widget-item">
-                    {{ link.title }}
+                {% if site.committee.home %}
+                  <a href="{{ site.committee.home }}" class="widget-item"
+                    title="Committee home page">
+                    <i class="fas fa-home"></i>
                   </a>
-                {% endfor %}
+                {% endif %}
+
+                {% if site.committee.links %}
+                  {% for link in site.committee.links %}
+                    <a href="{{ link.url }}" class="widget-item">
+                      {{ link.title }}
+                    </a>
+                  {% endfor %}
+                {% endif %}
               </span>
             {% endif %}
           </span>
