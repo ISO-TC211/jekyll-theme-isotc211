@@ -231,6 +231,10 @@ body {
             color: white;
           }
 
+          .committee-menu {
+            flex-flow: row wrap;
+          }
+
           .committee-name {
             background: $isoTCColor;
             border-color: $isoTCColor;

@@ -26,6 +26,16 @@ body.with-expandable-nav {
           background $expandTransitionTime $expandTransitionFunc 0s,
           border $expandTransitionTime $expandTransitionFunc 0s;
       }
+
+      @media screen and (max-width: $bigscreenBreakpoint - 1) {
+        .committee-name {
+          display: none;
+        }
+      }
+
+      .widget-group.committee-menu {
+        display: none;
+      }
     }
   }
 
@@ -122,15 +132,6 @@ body.with-expandable-nav {
         }
       }
 
-      .committee-widget {
-        .committee-menu {
-          .widget-item {
-            background: rgba(black, 0.2);
-            border-color: rgba(black, 0.2);
-          }
-        }
-      }
-
       nav.priority-nav {
         opacity: 0;
       }
@@ -141,6 +142,7 @@ body.with-expandable-nav {
         display: block;
         opacity: 1;
       }
+
       .committee-widget {
         .widget-item {
           background: none;
@@ -151,6 +153,17 @@ body.with-expandable-nav {
           &.committee-id {
             background: white;
             color: $isoTCColor;
+          }
+        }
+        .committee-name {
+          display: inline;
+        }
+        .widget-group.committee-menu {
+          display: flex;
+
+          .widget-item {
+            background: rgba(black, 0.2);
+            border-color: rgba(black, 0.2);
           }
         }
       }
