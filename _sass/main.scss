@@ -260,13 +260,15 @@ body {
       padding: 0;
       margin: 0;
 
-      margin-left: $logoOffset;
-
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
 
       padding-bottom: 1em;
+
+      @media screen and (min-width: $bigscreenBreakpoint) {
+        margin-left: $logoOffset;
+      }
 
       li {
         display: inline;
