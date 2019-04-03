@@ -40,13 +40,9 @@ permalink: /blog/:month-:day-:year/:title/
 # pointing to an array listing nav item IDs.
 nav:
   items:
-    - id: home
-      url: /
-      title: Home
-      description: Standard&nbsp;resources &amp;&nbsp;latest&nbsp;news
-    - id: about
-      url: /about
-      title: About
+    - id: posts
+      url: /posts/
+      title: News & Articles
 
 # Footer navigation
 footer_nav:
