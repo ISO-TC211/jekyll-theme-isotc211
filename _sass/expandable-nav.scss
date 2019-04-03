@@ -148,15 +148,26 @@ body.with-expandable-nav {
           background: none;
           box-shadow: none;
           border: 1px solid white;
-          border-left-color: $isoTCColor;
 
           &.committee-id {
             background: white;
             color: $isoTCColor;
           }
+          &.parent-org-reference {
+            background: #e30b1f;
+            border-color: white;
+            color: white;
+          }
         }
         .committee-name {
           display: inline;
+          flex-basis: 100%;
+        }
+        .widget-group {
+          flex-basis: 100%;
+          @media screen and (min-width: $bigscreenBreakpoint) {
+            flex-basis: unset;
+          }
         }
         .widget-group.committee-menu {
           display: flex;

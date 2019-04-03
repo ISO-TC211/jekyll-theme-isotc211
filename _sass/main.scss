@@ -204,7 +204,13 @@ body {
 
           .widget-group {
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: row wrap;
+            margin-bottom: 3px;
+
+            @media screen and (min-width: $bigscreenBreakpoint) {
+              flex-flow: row nowrap;
+              margin-bottom: 0;
+            }
           }
 
           .widget-item {
@@ -218,10 +224,18 @@ body {
             background: lighten(desaturate($isoTCColor, 50), 20);
             border-color: lighten(desaturate($isoTCColor, 50), 20);
             color: white;
+
+            box-sizing: border-box;
+
+            @media screen and (max-width: $bigscreenBreakpoint) {
+              margin-right: -1px;
+              margin-bottom: -1px;
+              flex: 1;
+            }
           }
 
           .committee-id {
-            padding-left: .8em;
+            padding-left: .7em;
             // Corrects visual padding inconsistency of unclear origin
 
             white-space: nowrap;
@@ -233,6 +247,16 @@ body {
 
           .committee-menu {
             flex-flow: row wrap;
+
+            .widget-item {
+              @media screen and (max-width: $bigscreenBreakpoint) {
+                flex-basis: 50%;
+
+                &.home {
+                  flex: 0;
+                }
+              }
+            }
           }
 
           .widget-item.parent-org-reference {
