@@ -43,7 +43,7 @@ nav:
     - id: home
       url: /
       title: Home
-      description: Standard resources & latest news
+      description: Standard&nbsp;resources &amp;&nbsp;latest&nbsp;news
     - id: about
       url: /about
       title: About
