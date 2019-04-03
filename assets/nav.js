@@ -63,8 +63,14 @@
 
         this.containerEl.classList.add(this.expandedHtmlClass);
 
-        const expH = this.expandableNavEl.getBoundingClientRect().height;
-        const prioH = this.priorityNavEl.getBoundingClientRect().height;
+        const expH = this.expandableNavEl ?
+          this.expandableNavEl.getBoundingClientRect().height :
+          0;
+
+        const prioH = this.priorityNavEl ?
+          this.priorityNavEl.getBoundingClientRect().height :
+          0;
+
         const heightDifference = expH - prioH + this.expandableNavBottomOffset;
 
         this.headerEl.style.paddingBottom = `${heightDifference}px`;
@@ -92,8 +98,9 @@
   const body = document.querySelector('body');
   const headerEl = document.querySelector('body > header');
   const expandableNavEl = headerEl.querySelector('nav.expandable-nav');
+  const committeeMenuEl = headerEl.querySelector('.committee-widget .committee-menu');
 
-  if (expandableNavEl) {
+  if (expandableNavEl || committeeMenuEl) {
 
     const container = new ExpandableContainer({
       containerEl: body,
