@@ -7,6 +7,9 @@ with links for navigation across the site and ISO TC pages.
 
 Added news (blog) index page.
 
+Added base-page template with generalized page header markup,
+and corresponding style rules.
+
 Fixed some minor layout issues with the site.
 
 == 0.3.1
