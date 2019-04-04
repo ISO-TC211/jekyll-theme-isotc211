@@ -339,5 +339,36 @@ body {
     flex-flow: column nowrap;
     line-height: 1.6;
     padding-bottom: 1em;
+
+    position: relative;
+
+    > header {
+      p.section-title {
+        margin: 0;
+        @extend .section-title;
+        transform-origin: top left;
+        transform: rotate(-90deg) translateX(-100%);
+        position: absolute;
+        color: $isoTCColor;
+        font-size: 80%;
+        top: 3em;
+        left: .3em;
+      }
+      h1 {
+        margin-bottom: 0;
+        font-weight: normal;
+        font-size: 200%;
+      }
+      .meta {
+        color: lighten($textColor, 50);
+        margin-bottom: 2em;
+      }
+    }
+
+    .lead {
+      background-color: rgba(0, 0, 0, 0.05);
+      font-size: 120%;
+      margin-bottom: 1em;
+    }
   }
 }

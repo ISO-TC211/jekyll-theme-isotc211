@@ -1,25 +1,6 @@
 body.post,
 body.page {
   > main {
-    padding-bottom: 1em;
-
-    h1 {
-      margin-bottom: 0;
-      font-weight: normal;
-      font-size: 200%;
-    }
-
-    .lead {
-      background-color: rgba(0, 0, 0, 0.05);
-      font-size: 120%;
-      margin-bottom: 1em;
-    }
-
-    .meta {
-      color: lighten($textColor, 50);
-      margin-bottom: 2em;
-    }
-
     .illustration {
       margin-bottom: 1em;
 

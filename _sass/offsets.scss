@@ -37,7 +37,8 @@ body.home > main > .news {
   }
 }
 
-body.post, body.page, body.post-index {
+// Basic body
+.pad-all-main-contents {
   > main > * {
     padding-left: $sideOffsetBase;
     padding-right: $sideOffsetBase / 2;
@@ -46,4 +47,8 @@ body.post, body.page, body.post-index {
       padding-right: $sideOffsetBase;
     }
   }
+}
+
+body.post, body.page, body.post-index {
+  @extend .pad-all-main-contents;
 }

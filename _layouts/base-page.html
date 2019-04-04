@@ -1,0 +1,30 @@
+---
+# “Normal” page with header.
+layout: default
+---
+{% assign title = page.title | default: page.title_html | default: layout.title | default: layout.title_html %}
+{% assign parent_title = page.parent_title | default: layout.parent_title %}
+{% if title or parent_title %}
+  <header>
+    {% if parent_title %}
+      <p class="section-title">{{ parent_title }}</p>
+    {% endif %}
+
+    {% if title %}
+      <h1>{{ title }}</h1>
+    {% endif %}
+
+    {% if page.date or page.version %}
+      <div class="meta">
+        {% if page.date %}
+          <p>{{ page.date | date: '%B %d, %Y' }}
+        {% endif %}
+        {% if page.version %}
+          <p>Versoin: {{ page.version }}
+        {% endif %}
+      </div>
+    {% endif %}
+  </header>
+{% endif %}
+
+{{ content }}
