@@ -296,6 +296,15 @@ body {
         }
       }
     }
+
+    &.brand {
+      .site-headline {
+        .title {
+          font-size: 220%;
+          margin-bottom: .5em;
+        }
+      }
+    }
   }
 
   > header > nav.priority-nav {

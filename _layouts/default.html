@@ -4,7 +4,7 @@
   {% include head.html %}
 
   <body class="{{ page.bodyClass | default: layout.bodyClass }}">
-    <header>
+    <header class="{% if site.has_brand_name %}brand{% endif %}">
       <div class="site-headline">
         <div class="parent-org-reference">
           <a href="/" class="logo-link">
