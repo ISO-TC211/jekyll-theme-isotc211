@@ -261,6 +261,13 @@ body {
             }
           }
 
+          .widget-item.home {
+            white-space: nowrap;
+            .fa-home {
+              margin-right: .25em;
+            }
+          }
+
           .widget-item.parent-org-reference {
             display: inline;
             background: #e30b1f;

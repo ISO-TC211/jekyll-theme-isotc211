@@ -1,5 +1,11 @@
 === Changelog
 
+== 0.4.3
+
+Added an option to configure Committee site link in main navigation.
+The option, when switched to yes, will ensure committee site link
+will always appear on landing, regardless of top expandable menu state.
+
 == 0.4.1/0.4.2
 
 Layout fixes related to Flexbox layout behavior in IE 11, 10 and 9.

@@ -44,6 +44,10 @@ nav:
       url: /posts/
       title: News & Articles
 
+always_show_committee_link_on_landing: no
+# Switching this to “yes” will enable the Committee site link
+# to appear on landing page even when expandable menu is collapsed.
+
 # Footer navigation
 footer_nav:
   - url: https://committee.iso.org/home/tc211

@@ -24,17 +24,23 @@
               <span class="widget-item committee-name">
                 {{ site.committee.name }}
               </span>
+
+              {% if page.layout == "home" and site.always_show_committee_link_on_landing and site.committee.home %}
+                <a href="{{ site.committee.home }}" class="widget-item home">
+                  <i class="fas fa-home"></i>
+                  Committee site
+                </a>
+              {% endif %}
             </span>
 
             {% if site.committee.home or site.committee.links %}
               <span class="widget-group committee-menu">
-                {% if site.committee.home %}
-                  <a href="{{ site.committee.home }}" class="widget-item home"
-                    title="Committee home page">
+                {% unless page.layout == "home" and site.always_show_committee_link_on_landing and site.committee.home %}
+                  <a href="{{ site.committee.home }}" class="widget-item home">
                     <i class="fas fa-home"></i>
+                    Committee site
                   </a>
-                {% endif %}
-
+                {% endunless %}
                 {% if site.committee.links %}
                   {% for link in site.committee.links %}
                     <a href="{{ link.url }}" class="widget-item">
