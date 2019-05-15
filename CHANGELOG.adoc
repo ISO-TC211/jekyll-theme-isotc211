@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.4.1/0.4.2
+
+Layout fixes related to Flexbox layout behavior in IE 11, 10 and 9.
+
 == 0.4
 
 Redesigned site header. Added header menu (triggered by hamburger icon)
