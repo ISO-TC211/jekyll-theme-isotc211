@@ -1,10 +1,10 @@
 // Flexbox corrections for IE 11
+
 @media all and (-ms-high-contrast:none){
   body.home section.resource-row > .resource{
     display: inline-block;
   }
 }
-
 
 
 // Layout workaround without using Flexbox for IE 10 and below
