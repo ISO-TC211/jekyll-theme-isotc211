@@ -1,5 +1,11 @@
 === Changelog
 
+== 0.4.4/0.4.6
+
+Added support for Google Analytics.
+
+Improved layout compatibility with IE10+.
+
 == 0.4.3
 
 Added an option to configure Committee site link in main navigation.
