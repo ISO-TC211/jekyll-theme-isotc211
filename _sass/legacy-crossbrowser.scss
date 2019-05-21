@@ -1,12 +1,3 @@
-// Flexbox corrections for IE 11
-
-@media all and (-ms-high-contrast:none){
-  body.home section.resource-row > .resource{
-    display: inline-block;
-  }
-}
-
-
 // Layout workaround without using Flexbox for IE 10 and below
 
 @media screen and (min-width:0\0) {
@@ -31,12 +22,6 @@
     display: block;
   }
 
-  body.home section.resource-row>.resource {
-    width: 31%;
-    display: block;
-    float: left;
-  }
-
   body.home>main>.news .items {
     padding: 0;
     margin: 0;
@@ -59,8 +44,7 @@
     min-height: 208px;
   }
 
-  body.home>main>.news,
-  body.home section.resource-row {
+  body.home>main>.news {
     clear: both;
     display: block;
   }
