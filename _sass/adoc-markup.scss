@@ -189,4 +189,9 @@
       }
     }
   }
+  @media all and (-ms-high-contrast: none) {
+    body > main .admonitionblock {
+      overflow-x: auto;
+    }
+  }
 }
