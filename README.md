@@ -4,6 +4,76 @@ This is a theme used across ISO/TC211 sites powered by Ribose,
 including www.isotc211.org and resource sites such as geolexica.com.
 
 
+## Configuring site
+
+Recommended plugins to add to your Gemfile:
+
+```
+group :jekyll_plugins do
+  gem "jekyll-data"
+  gem "jekyll-asciidoc"
+  gem "jekyll-external-links"
+end
+```
+
+Configuration keys:
+
+```
+title: <site title to be used in meta and in body>
+title_html: <if specified, is used in body instead of title>
+
+google_analytics:
+  id: UA-XXXXXX-X
+
+committee:
+  id: <numerical committee ID>
+  name: <full committee name>
+  home: <committee homepage, probably on iso.org>
+  links:
+    - url: /about
+      title: About
+    - url: /strategic-policy
+      title: Strategic Policy Statement
+    - url: /faq
+      title: FAQ
+
+always_show_committee_link_on_landing: yes
+
+awards:
+  - title: 2010 Lawrence D. Eicher Leadership Award
+    path: /award/2010/09/16/tc211-wins-iso-excellence-award.html
+
+social:
+  links:
+    - url: https://twitter.com/<account>
+    - url: https://github.com/<org>
+    - url: https://www.facebook.com/groups/<group ID>/
+    - url: https://www.linkedin.com/groups/<group ID>
+
+# Committee site maintainer
+powered_by:
+  title: <organization name>
+  url: <organization site>
+  logo_path: /assets/<logo-filename.svg>
+
+# Primary navigation
+nav:
+  items:
+    - id: home
+      url: /
+      title: Home
+      description: Standard resource links & latest news
+    - id: news
+      url: /posts
+      title: News & Articles
+
+# Footer navigation (example)
+footer_nav:
+  - url: <committee site URL>
+    title: ISO/TC XXX
+```
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub
