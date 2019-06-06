@@ -5,6 +5,10 @@
 Added a setting to specify Font Awesome kit URL,
 according to their new distribution method.
 
+== 0.4.7
+
+Added styling for external links added by jekyll-external-links.
+
 == 0.4.4/0.4.6
 
 Added support for Google Analytics.
