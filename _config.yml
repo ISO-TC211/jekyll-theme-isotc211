@@ -14,6 +14,8 @@ markdown: kramdown
 
 permalink: /blog/:month-:day-:year/:title/
 
+# font_awesome_kit_url: <url>
+
 # google_analytics:
 #   id: UA-XXXXX-Y
 

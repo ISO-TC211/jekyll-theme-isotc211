@@ -22,6 +22,8 @@ Configuration keys:
 title: <site title to be used in meta and in body>
 title_html: <if specified, is used in body instead of title>
 
+font_awesome_kit_url: <url to your FA kit, free kits are OK with stock theme version>
+
 google_analytics:
   id: UA-XXXXXX-X
 
