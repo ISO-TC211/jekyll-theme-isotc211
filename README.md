@@ -6,10 +6,21 @@ including www.isotc211.org and resource sites such as geolexica.com.
 
 ## Configuring site
 
-Recommended plugins to add to your Gemfile:
+Theme relies on accompanying helper plugin
+(note: plugin gem version should match theme version):
 
 ```
 group :jekyll_plugins do
+  gem "jekyll-theme-isotc211-helpers"
+  # ...
+end
+```
+
+Other recommended plugins to add to your Gemfile:
+
+```
+group :jekyll_plugins do
+  # ...
   gem "jekyll-data"
   gem "jekyll-asciidoc"
   gem "jekyll-external-links"
@@ -38,6 +49,20 @@ committee:
       title: Strategic Policy Statement
     - url: /faq
       title: FAQ
+
+# Builds browsable resource pages
+resource_listings:
+  schemas:
+    # Source directory containing resources, relative to site source root.
+    # Each subdirectory within will be treated as a resource
+    resource_root: 'schemas'
+
+    # The path, under which resource browser will be available to site visitors
+    index_url: 'schemas'
+
+    # These control resource index & individual resource pages
+    index_title: "Schemas"
+    resource_label: "schema"
 
 always_show_committee_link_on_landing: yes
 
