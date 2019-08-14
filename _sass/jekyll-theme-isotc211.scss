@@ -83,3 +83,59 @@ html {
 @import 'post';
 @import 'posts';
 @import 'legacy-crossbrowser';
+
+body.resource {
+  max-height: 100vh;
+
+  > main {
+    flex: 1 1 auto;
+    padding-top: 1em;
+    overflow: hidden;
+
+    > header h1 {
+      display: none;
+    }
+  }
+
+  .two-pane-viewer {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+
+    .viewer {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-flow: row nowrap;
+      padding: 1em;
+      margin: 0 1em;
+      border-radius: 1em;
+      background: whiteSmoke;
+
+      iframe {
+        flex: 1;
+        border: 0;
+      }
+    }
+
+    .browser {
+      max-width: 300px;
+      font-size: 84%;
+      box-shadow: none;
+      overflow-y: scroll;
+      padding-top: 1em;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        border: 0;
+
+        &.selected {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

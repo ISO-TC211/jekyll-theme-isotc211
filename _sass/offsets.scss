@@ -49,6 +49,13 @@ body.home > main > .news {
   }
 }
 
-body.post, body.page, body.post-index {
+body.post, body.page, body.post-index, body.resource-index {
   @extend .pad-all-main-contents;
+}
+
+body.resource {
+  > main > * {
+    padding-left: $stripeWidth * 2;
+    padding-right: 0;
+  }
 }
