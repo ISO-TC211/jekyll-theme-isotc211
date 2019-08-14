@@ -7,6 +7,10 @@ body > main a {
   color: $linkColor;
   border-bottom: 1px solid $linkColor;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   &[rel=external] {
     border-bottom-style: dotted;
     &:link, &:hover, &:focus, &:active {
