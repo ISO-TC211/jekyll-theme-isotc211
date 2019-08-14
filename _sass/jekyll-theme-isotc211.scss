@@ -23,6 +23,8 @@ $mainSectionBackgroundColor: rgba(white, 0.8);
 $linkColor: $isoTCColor;
 $linkColorInverse: white;
 
+$stripeWidth: 30px;
+
 $homeSectionItemSidePadding: 1em;
 
 @mixin titleFontFamily($useBold: false) {
