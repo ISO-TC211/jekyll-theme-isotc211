@@ -39,10 +39,6 @@ $homeSectionItemSidePadding: 1em;
 
 @import 'normalize';
 
-body {
-  font-family: $bodyFontFamily;
-}
-
 a {
   &:link, &:visited, &:hover {
     color: inherit;
