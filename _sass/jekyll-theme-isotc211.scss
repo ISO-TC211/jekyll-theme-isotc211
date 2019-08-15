@@ -127,6 +127,10 @@ body.resource {
       overflow-y: scroll;
       padding-top: 1em;
 
+      .bp3-tree-node-content:hover {
+        background-color: inherit;
+      }
+
       a {
         color: inherit;
         text-decoration: none;
