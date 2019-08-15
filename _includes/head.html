@@ -16,10 +16,11 @@
   <meta name="msapplication-config" content="/browserconfig.xml" />
   <meta name="theme-color" content="#ffffff" />
 
-  <script src="{{ site.font_awesome_kit_url }}"></script>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}" />
 
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-LRlmVvLKVApDVGuspQFnRQJjkv0P7/YFrw84YYQtmYG4nK8c+M+NlmYDCv0rKWpG" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ "/assets/style.css" | relative_url }}" />
+  {% if site.font_awesome_kit_url %}
+    <script src="{{ site.font_awesome_kit_url }}"></script>
+  {% endif %}
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,12 +28,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}" />
-
-  {% if jekyll.environment == 'production' and site.google_analytics %}
-    <script src="{{ "/assets/ga.js" | relative_url }}"></script>
-  {% endif %}
 
   {% assign extra_stylesheets = page.extra_stylesheets | default: layout.extra_stylesheets %}
   {% if extra_stylesheets %}
@@ -52,6 +47,12 @@
         {% if sc.integrity %}integrity="{{ sc.integrity }}"{% endif %}
         {% if sc.crossorigin %}crossorigin="{{ sc.crossorigin }}"{% endif %}></script>
     {% endfor %}
+  {% endif %}
+
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/style.css" | relative_url }}" />
+
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+    <script src="{{ "/assets/ga.js" | relative_url }}"></script>
   {% endif %}
 
 </head>
