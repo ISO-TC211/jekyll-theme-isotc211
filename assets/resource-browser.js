@@ -21,13 +21,18 @@
           // var extension = itemUrl.slice('-1');
           fetchResource(itemUrl, function () {
             if (this.responseXML) {
-              iframe.setAttribute('src', 'about:blank');
-              iframe.contentWindow.document.open();
-              iframe.contentWindow.document.write(
-                '<pre>' +
-                new Option(prettyPrintXML(this.responseXML)).innerHTML +
-                '</pre>');
-              iframe.contentWindow.document.close();
+              try {
+                iframe.setAttribute('src', 'about:blank');
+                iframe.contentWindow.document.open();
+                iframe.contentWindow.document.write(
+                  '<pre>' +
+                  new Option(prettyPrintXML(this.responseXML)).innerHTML +
+                  '</pre>');
+                iframe.contentWindow.document.close();
+
+              } catch (e) {
+                iframe.setAttribute('src', itemUrl);
+              }
             } else {
               iframe.setAttribute('src', itemUrl);
             }
