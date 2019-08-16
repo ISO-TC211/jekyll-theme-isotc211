@@ -1,5 +1,26 @@
 === Changelog
 
+== 0.5.0
+
+Resource navigator graduated to beta. Fixed compatibility issues with Firefox,
+some appearance regressions, and increased robustness overall.
+
+== 0.4.9
+
+Implemented resource navigation UI for things like standards, schemas, ontologies
+and so on.
+
+- Resources are configured via site’s _config.yml.
+
+- For each resource listing, root directory
+  is specified, under which each direct subdirectory is treated as an individual resource,
+  and anything nested under it is treated as resource contents and can be arbitrary.
+
+- For each resource listing, under specified path, site provides a tree view of resource
+  content structure, allowing to easily access any file.
+
+- Resource pages pull BlueprintJS’s styling for the tree view widget.
+
 == 0.4.8
 
 Added a setting to specify Font Awesome kit URL,
