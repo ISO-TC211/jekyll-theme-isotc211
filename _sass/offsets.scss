@@ -31,9 +31,7 @@ body.home > main  {
 
 body.home > main > .news {
   .items {
-    .news-item-card:first-child {
-      margin-left: calc(#{$sideOffsetBase} - #{$homeSectionItemSidePadding});
-    }
+    margin-left: calc(#{$sideOffsetBase} - #{$homeSectionItemSidePadding});
   }
 }
 
