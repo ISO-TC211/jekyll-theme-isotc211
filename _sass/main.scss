@@ -32,9 +32,12 @@ body {
   line-height: 1.15;
 }
 
+body {
+  font-family: $bodyFontFamily;
+}
+
 body > main {
   font-size: 18px;
-  font-family: $bodyFontFamily;
   @include asciidoc-markup();
 }
 
