@@ -157,5 +157,25 @@
 
     <script src="{{ "/assets/js/nav.js" | relative_url }}"></script>
 
+    {% assign extra_stylesheets = page.extra_stylesheets | default: layout.extra_stylesheets %}
+    {% if extra_stylesheets %}
+      {% for ss in extra_stylesheets %}
+        <link rel="stylesheet"
+          href="{{ ss.href }}"
+          {% if ss.integrity %}integrity="{{ ss.integrity }}"{% endif %}
+          {% if ss.crossorigin %}crossorigin="{{ ss.crossorigin }}"{% endif %}>
+      {% endfor %}
+    {% endif %}
+
+    {% assign extra_scripts = page.extra_scripts | default: layout.extra_scripts %}
+    {% if extra_scripts %}
+      {% for sc in extra_scripts %}
+        <script
+          src="{{ sc.src }}"
+          {% if sc.integrity %}integrity="{{ sc.integrity }}"{% endif %}
+          {% if sc.crossorigin %}crossorigin="{{ sc.crossorigin }}"{% endif %}></script>
+      {% endfor %}
+    {% endif %}
+
   </body>
 </html>
