@@ -66,10 +66,20 @@ collections:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - .sass-cache/
+
   - babel.config.js
   - package.json
   - package-lock.json
-  - github_deploy_key.enc
   - monitor.sh
   - node_modules
+
+  - github_deploy_key.enc
+  - deploy.sh
+  - monitor.sh
+
+  - .sass-cache/
+
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
