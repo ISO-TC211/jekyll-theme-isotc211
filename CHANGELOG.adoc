@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.5.1
+
+Added an include to make `<title>` meta tag easily overridable.
+
 == 0.5.0
 
 Resource navigator graduated to beta. Fixed compatibility issues with Firefox,
