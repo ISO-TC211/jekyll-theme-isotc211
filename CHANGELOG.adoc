@@ -1,5 +1,9 @@
 === Changelog
 
+== 0.5.2
+
+Fixed an issue where resource browser may not work due to a silly syntax error.
+
 == 0.5.1
 
 Added an include to make `<title>` meta tag easily overridable.
