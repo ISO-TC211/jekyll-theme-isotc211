@@ -20,6 +20,8 @@ Other recommended plugins to add to your Gemfile:
 
 ```
 group :jekyll_plugins do
+  gem "jekyll-theme-isotc211-helpers"
+
   # ...
   gem "jekyll-data"
   gem "jekyll-asciidoc"
