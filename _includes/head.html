@@ -18,6 +18,16 @@
 
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | relative_url }}" />
 
+  {% assign extra_stylesheets = page.extra_stylesheets | default: layout.extra_stylesheets %}
+  {% if extra_stylesheets %}
+    {% for ss in extra_stylesheets %}
+      <link rel="stylesheet"
+        href="{{ ss.href }}"
+        {% if ss.integrity %}integrity="{{ ss.integrity }}"{% endif %}
+        {% if ss.crossorigin %}crossorigin="{{ ss.crossorigin }}"{% endif %}>
+    {% endfor %}
+  {% endif %}
+
   {% if site.font_awesome_kit_url %}
     <script src="{{ site.font_awesome_kit_url }}"></script>
   {% endif %}
