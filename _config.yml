@@ -67,3 +67,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - .sass-cache/
+  - babel.config.js
+  - package.json
+  - package-lock.json
+  - github_deploy_key.enc
+  - monitor.sh
