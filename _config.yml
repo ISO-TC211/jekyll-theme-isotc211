@@ -72,3 +72,4 @@ exclude:
   - package-lock.json
   - github_deploy_key.enc
   - monitor.sh
+  - node_modules
