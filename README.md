@@ -1,7 +1,8 @@
 # ISO/TC211 theme by Ribose
 
 This is a theme used across ISO/TC211 sites powered by Ribose,
-including www.isotc211.org and resource sites such as geolexica.com.
+including https://www.isotc211.org
+and resource sites such as https://geolexica.org/, https://def.isotc211.org/.
 
 
 ## Configuring site
