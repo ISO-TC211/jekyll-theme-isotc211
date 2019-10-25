@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'jekyll-theme-isotc211'
-  s.version       = '0.5.7'
+  s.version       = '0.5.8'
   s.authors       = ['Ribose Inc.']
   s.email         = ['open.source@ribose.com']
 
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage      = 'https://github.com/iso-tc211/jekyll-theme-isotc211/'
   s.license       = 'MIT'
 
-  s.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^((_includes|_layouts|_sass|assets|_pages)/|(_config.yml|LICENSE|README)((\.(txt|md|markdown|adoc)|$)))}i) }
+  s.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^((_data|_includes|_layouts|_sass|assets|_pages)/|(_config.yml|LICENSE|README)((\.(txt|md|markdown|adoc)|$)))}i) }
 
   s.add_runtime_dependency 'jekyll', '~> 3.8'
   s.add_runtime_dependency 'jekyll-seo-tag', '~> 2.0'
