@@ -1,6 +1,6 @@
 <div class="copyright">
   <p class="year">
-    &#xA9; 2018 ISO/TC 211.
+    &#xA9; {{ site.time | date: "%Y" }} {{ site.org.name }}.
   </p>
 
   <p class="message">
@@ -12,15 +12,13 @@
   </p>
 
   <div class="contact-info">
-    <p class="name">ISO/TC 211</p>
+    <p class="name">{{ site.org.name }}</p>
     <p class="address">
-      Some place<br />
-      In beautiful<br />
-      Geneva<br />
-      Switzerland<br />
+      {{ site.org.address | newline_to_br }}
       <br />
-      <a href="mailto:copyright@iso.org">copyright@iso.org</a><br />
-      <a href="https://www.iso.org">www.iso.org</a>
+      <a href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>
+      <br />
+      <a href="{{ site.org.website.url }}">{{ site.org.website.title }}</a>
     </p>
   </div>
 </div>
