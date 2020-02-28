@@ -1,7 +1,9 @@
 # ISO/TC211 theme by Ribose
 
-This is a theme used across ISO/TC211 sites powered by Ribose,
-including https://www.isotc211.org
+Jekyll theme for ISO TC resource websites sites.
+
+Currently used across ISO/TC211 resources
+powered by Ribose, including resource index https://www.isotc211.org
 and resource sites such as https://geolexica.org/, https://def.isotc211.org/.
 
 
