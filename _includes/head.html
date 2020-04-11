@@ -45,4 +45,14 @@
     <script src="{{ "/assets/js/ga.js" | relative_url }}"></script>
   {% endif %}
 
+  {% assign extra_scripts_sync = page.extra_scripts_sync | default: layout.extra_scripts_sync %}
+  {% if extra_scripts_sync %}
+    {% for sc in extra_scripts_sync %}
+      <script
+        src="{{ sc.src }}"
+        {% if sc.integrity %}integrity="{{ sc.integrity }}"{% endif %}
+        {% if sc.crossorigin %}crossorigin="{{ sc.crossorigin }}"{% endif %}></script>
+    {% endfor %}
+  {% endif %}
+
 </head>
