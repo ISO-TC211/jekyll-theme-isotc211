@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'jekyll-theme-isotc211'
-  s.version       = '0.5.9'
+  s.version       = '0.6.0'
   s.authors       = ['Ribose Inc.']
   s.email         = ['open.source@ribose.com']
 
@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^((_data|_includes|_layouts|_sass|assets|_pages)/|(_config.yml|LICENSE|README)((\.(txt|md|markdown|adoc)|$)))}i) }
 
-  s.add_runtime_dependency 'jekyll', '~> 3.8'
+  s.add_runtime_dependency 'jekyll', '~> 4.0'
   s.add_runtime_dependency 'jekyll-seo-tag', '~> 2.0'
   s.add_runtime_dependency 'jekyll-data', '~> 1.0'
-  s.add_runtime_dependency 'jekyll-theme-isotc211-helpers', '~> 0.5.4'
+  s.add_runtime_dependency 'jekyll-theme-isotc211-helpers', '~> 0.6.0'
 
   s.add_development_dependency 'bundler', '~> 2.0'
   s.add_development_dependency 'rake', '~> 12.0'
