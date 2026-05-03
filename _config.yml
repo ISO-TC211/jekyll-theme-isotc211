@@ -1,98 +1,42 @@
-title: "An ISO TC 211 site"
+# Theme defaults — sites override these in their own _config.yml
+title: "ISO/TC 211 Site"
+title_html: "ISO/TC&nbsp;211"
+brand_sub: "Geographic information/Geomatics"
+description: "An ISO/TC 211 resource site"
 
 email: open.source@ribose.com
 
-description: >-
-  Welcome to this ISO/TC 211 site.
-
-# The protocol + domain name of the site
-# url: "https://geolexica.com"
-
-includes_dir: .
-
 markdown: kramdown
 
-permalink: /blog/:month-:day-:year/:title/
-
-# font_awesome_kit_url: <url>
-
-# google_analytics:
-#   id: UA-XXXXX-Y
-
-# Used for copyright notice and possibly more.
-org:
-  name: International Organization for Standardization
-  website:
-    url: https://www.iso.org/
-    title: www.iso.org
-  email: copyright@iso.org
-  address: |-
-    Chemin de Blandonnet 8
-    CP 401
-    1214 Vernier, Geneva
-    Switzerland
-
-# Social profile navigation
-# social:
-#   links:
-#     - url: https://twitter.com/…
-#     - url: https://github.com/…
-#     - url: https://www.facebook.com/groups/…
-#     - url: https://www.linkedin.com/groups/…
-
-# committee:
-#   id: <number>
-#   name: <full name>
-#   home: <committee’s external home page URL>
-#   links:
-#     - url: /about
-#       title: About
-#     - url: /strategic-policy
-#       title: Strategic Policy Statement
-#     - url: /faq
-#       title: FAQ
-
-# Main site navigation.
-# Layouts and pages can specify priority nav items
-# using frontmatter key nav_items
-# pointing to an array listing nav item IDs.
-nav:
-  items:
-    - id: posts
-      url: /posts/
-      title: News & Articles
-
-always_show_committee_link_on_landing: no
-# Switching this to “yes” will enable the Committee site link
-# to appear on landing page even when expandable menu is collapsed.
-
-# Footer navigation
-footer_nav:
-  - url: https://committee.iso.org/home/tc211
-    title: ISO/TC 211
+plugins:
+  - jekyll/vite
+  - jekyll-feed
 
 collections:
   pages:
     output: true
     permalink: /:path/
 
+committee:
+  id: 211
+  name: Geographic information/Geomatics
+
+social:
+  links: []
+
+nav: []
+footer_links: []
+
 exclude:
   - Gemfile
   - Gemfile.lock
-
-  - babel.config.js
   - package.json
   - package-lock.json
-  - monitor.sh
   - node_modules
-
-  - github_deploy_key.enc
-  - deploy.sh
-  - monitor.sh
-
-  - .sass-cache/
-
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor
+  - .sass-cache
+  - vite.config.ts
+  - postcss.config.js
+  - bin
+  - _frontend
+  - config/vite.json

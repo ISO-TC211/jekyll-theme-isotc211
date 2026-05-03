@@ -1,5 +1,22 @@
 === Changelog
 
+== 1.0.0
+
+Complete rewrite with modern design:
+
+- **Vite 7** frontend pipeline (replaces Sass + Babel)
+- **Tailwind CSS v4** with `@import "tailwindcss"` syntax
+- **Dark mode** via class-based toggle, persisted in localStorage
+- **Inter font** from Google Fonts (replaces Tienne)
+- **Fixed glassmorphic header** with brand bar, navigation, dark mode toggle
+- **Clean footer** with resource links, social icons, award banner
+- **Responsive** mobile-first design with breakpoints at 640px, 768px, 1024px
+- **Component CSS** in `@layer components` with BEM naming
+- **Parameterized layouts** — all content driven by `_config.yml`
+- Dropped: Font Awesome, normalize.css, legacy cross-browser CSS, IE support
+- Dropped: `jekyll-seo-tag`, `jekyll-data`, `jekyll-theme-isotc211-helpers` runtime deps
+- Kept: resource browser layouts (BlueprintJS), resource-tree-item include
+
 == 0.5.4
 
 Another improvement to resource browser—now handling the copying of resource contents.

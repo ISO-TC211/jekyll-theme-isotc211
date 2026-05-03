@@ -1,75 +1,83 @@
-# ISO/TC211 theme by Ribose
+# jekyll-theme-isotc211
 
-Jekyll theme for ISO TC resource websites sites.
+Modern Jekyll theme for ISO/TC 211 resource sites — Vite 7, Tailwind CSS v4,
+dark mode, Inter font, responsive design.
 
-Currently used across ISO/TC211 resources
-powered by Ribose, including resource index https://www.isotc211.org
-and resource sites such as https://geolexica.org/, https://def.isotc211.org/.
+Used by [www.isotc211.org](https://www.isotc211.org),
+[registry.isotc211.org](https://registry.isotc211.org), and
+[standards.isotc211.org](https://standards.isotc211.org).
 
 
-## Configuring site
+## Installation
 
-Theme relies on accompanying helper plugin
-(note: plugin gem version should match theme version):
+Add to your Gemfile:
 
+```ruby
+gem "jekyll-theme-isotc211", "~> 1.0"
 ```
+
+And to `_config.yml`:
+
+```yaml
+theme: jekyll-theme-isotc211
+```
+
+Your site also needs `jekyll-vite`:
+
+```ruby
 group :jekyll_plugins do
-  gem "jekyll-theme-isotc211-helpers"
-  # ...
+  gem "jekyll-vite"
 end
 ```
 
-Other recommended plugins to add to your Gemfile:
+And a `package.json` with Vite + Tailwind:
 
+```json
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5",
+    "postcss": "^8",
+    "tailwindcss": "^4",
+    "terser": "^5",
+    "vite": "^7",
+    "vite-plugin-ruby": "^5"
+  }
+}
 ```
-group :jekyll_plugins do
-  gem "jekyll-theme-isotc211-helpers"
 
-  # ...
-  gem "jekyll-data"
-  gem "jekyll-asciidoc"
-  gem "jekyll-external-links"
-end
-```
 
-Configuration keys:
+## Configuration
 
-```
-title: <site title to be used in meta and in body>
-title_html: <if specified, is used in body instead of title>
+```yaml
+title: "Resource site for ISO/TC 211 Geographic information/Geomatics"
+title_html: "ISO/TC&nbsp;211"
+brand_sub: "Harmonized Resources Maintenance Agency"
+description: "Resource site description"
 
-font_awesome_kit_url: <url to your FA kit, free kits are OK with stock theme version>
+header_logo: "/assets/iso-red.svg"  # Optional, defaults to iso-red.svg
 
 google_analytics:
-  id: UA-XXXXXX-X
+  id: UA-XXXXX-Y
 
 committee:
-  id: <numerical committee ID>
-  name: <full committee name>
-  home: <committee homepage, probably on iso.org>
-  links:
-    - url: /about
-      title: About
-    - url: /strategic-policy
-      title: Strategic Policy Statement
-    - url: /faq
-      title: FAQ
+  id: 211
+  name: Geographic information/Geomatics
+  home: https://committee.iso.org/home/tc211
 
-# Builds browsable resource pages
-resource_listings:
-  schemas:
-    # Source directory containing resources, relative to site source root.
-    # Each subdirectory within will be treated as a resource
-    resource_root: 'schemas'
+nav:
+  - title: About
+    url: /about/
+  - title: Blog
+    url: /posts/
 
-    # The path, under which resource browser will be available to site visitors
-    index_url: 'schemas'
-
-    # These control resource index & individual resource pages
-    index_title: "Schemas"
-    resource_label: "schema"
-
-always_show_committee_link_on_landing: yes
+footer_links:
+  - title: Geodetic Registry
+    url: https://geodetic.isotc211.org/
+  - title: Schemas
+    url: https://schemas.isotc211.org
 
 awards:
   - title: 2010 Lawrence D. Eicher Leadership Award
@@ -77,116 +85,72 @@ awards:
 
 social:
   links:
-    - url: https://twitter.com/<account>
-    - url: https://github.com/<org>
-    - url: https://www.facebook.com/groups/<group ID>/
-    - url: https://www.linkedin.com/groups/<group ID>
+    - url: https://twitter.com/ISOTC211
+    - url: https://github.com/ISO-TC211
 
-# Committee site maintainer
-powered_by:
-  title: <organization name>
-  url: <organization site>
-  logo_path: /assets/<logo-filename.svg>
-
-# Primary navigation
-nav:
-  items:
-    - id: home
-      url: /
-      title: Home
-      description: Standard resource links & latest news
-    - id: news
-      url: /posts
-      title: News & Articles
-
-# Footer navigation (example)
-footer_nav:
-  - url: <committee site URL>
-    title: ISO/TC XXX
+favicon_svg: "/assets/favicon.svg"
+favicon_ico: "/assets/favicon.ico"
 ```
 
 
-## Contributing
+## Layouts
 
-Bug reports and pull requests are welcome on GitHub
-at https://github.com/riboseinc/jekyll-theme-isotc211.
+| Layout | Description |
+|--------|-------------|
+| `default` | Full page: head, header, main, footer, Vite JS |
+| `base` | Raw content pass-through |
+| `home` | Content + optional news roll |
+| `page` | Generic content page |
+| `post` | Blog post with illustration support |
+| `posts` | Blog index |
+| `base-page` | Content page with header (for resource browser) |
+| `resource-index` | Resource directory listing |
+| `resource-page` | Two-pane BlueprintJS resource browser |
 
-This project is intended to be a safe, welcoming space for collaboration,
-and contributors are expected to adhere
-to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Sites can override any layout by creating a file with the same name in their
+own `_layouts/` directory.
 
 
-## Theme development
+## CSS
 
-Generally, this directory is setup like a Jekyll site. To set it up,
-run `bundle install`.
+The theme provides these CSS files in `_frontend/css/`:
 
-To experiment with this code, add content (projects, software, specs)
-and run `bundle exec jekyll serve`. This starts a Jekyll server
-using this theme at `http://localhost:4000`. 
+| File | Content |
+|------|---------|
+| `header.css` | Fixed glassmorphic header, brand bar, navigation |
+| `footer.css` | Footer grid, links, social icons |
+| `typography.css` | Section labels, headings, meta text |
+| `page.css` | AsciiDoc documentation prose defaults |
+| `home.css` | Sections, blog list, awards, about page |
 
-Put your layouts in `_layouts`, your includes in `_includes`,
-your sass files in `_sass` and any other assets in `assets`.
+Sites can add their own CSS files and import them in their
+`_frontend/entrypoints/application.js`.
 
-Add pages, documents, data, etc. like normal to test your theme's contents.
 
-As you make modifications to your theme and to your content, your site will
-regenerate and you should see the changes in the browser after a refresh,
-like normal.
+## Migration from v0.x
 
-When your theme is released, only files specified with gemspec file
-will be included. If you modify theme to add more directories that
-need to be included in the gem, edit regexp in the gemspec.
+1. Remove `font_awesome_kit_url` from `_config.yml`
+2. Remove `_sass/` directory from site
+3. Replace `jekyll-plugin-frontend-build` with `jekyll-vite` in Gemfile
+4. Add Vite config files (`vite.config.ts`, `postcss.config.js`, `config/vite.json`)
+5. Update `nav` config from `nav.items` array-of-objects to flat `nav` array
+6. Update `footer_nav` to `footer_links`
+7. Remove Babel config if present
 
-### Building and releasing
 
-#### Manual test during development
+## Development
 
-When you’re working on visual aspects of the theme, it’s useful
-to see how it would affect the end result (a site *built with* this theme).
+```sh
+bundle install
+```
 
-Here’s how to develop the theme while simultaneously previewing the changes
-on a site. The sequence would be as follows, assuming you have a local copy
-of this repo and have a Jekyll site using this theme:
+Point a site to the local theme via Gemfile:
 
-1. For the Jekyll site, change Gemfile to point to local copy
-   of the theme (the root of this repo) and run `bundle`.
-
-   For example, you’d change `gem "jekyll-theme-isotc211"`
-   to `gem "jekyll-theme-isotc211", :path => "../jekyll-theme-isotc211"`.
-   The relative path assumes your site root and theme root are sibling directories.
-
-2. Run `bundle exec jekyll serve` to start Jekyll’s development server.
-
-3. Make changes to both theme and site directory contents.
-
-4. If needed, kill with Ctrl+C then relaunch the serve command
-   to apply the changes you made to the theme
-   (it may not reload automatically if changes only affect the theme and not the site
-   you’re serving).
-
-4. Once you’re satisfied, release a new version of the theme — see below.
-
-5. (To later bump the site to this latest version: revert the Gemfile change,
-   update theme dependency version to the one you’ve just released,
-   run `bundle --full-index` to update the lockfile,
-   and your site is ready to go.)
-
-#### Releasing
-
-Make sure theme works: build script is under construction,
-so use good judgement and thorough manual testing.
-
-1. First, update version number in .gemspec within this repo’s root.
-
-2. Then, execute `./develop/release`. This does the following:
-
-   * Builds new gem version
-   * Pushes gem to rubygems.org
-   * Creates new version tag in this repository
-   * Pushes changes to GitHub
+```ruby
+gem "jekyll-theme-isotc211", path: "../jekyll-theme-isotc211"
+```
 
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+MIT

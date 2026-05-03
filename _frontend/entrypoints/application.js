@@ -1,0 +1,5 @@
+import '../css/header.css'
+import '../css/footer.css'
+import '../css/typography.css'
+import '../css/page.css'
+import '../js/theme.js'

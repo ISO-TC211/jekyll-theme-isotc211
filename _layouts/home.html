@@ -1,6 +1,5 @@
 ---
 layout: default
-bodyClass: home
 ---
 
 {{ content }}
@@ -8,13 +7,29 @@ bodyClass: home
 {% assign num_posts = site.posts | size %}
 
 {% if num_posts > 0 %}
-  <section class="news">
-    <h2 class="section-title">News</h2>
+<section class="section section--muted">
+  <div style="max-width: 80rem; margin: 0 auto;">
+    <div class="section__header">
+      <span class="section__kicker">Latest</span>
+      <h2 class="section__title">News</h2>
+    </div>
 
-    <div class="items">
-      {% for post in site.posts %}
-        {% include newsroll-entry.html %}
+    <div class="blog-list">
+      {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+      {% for post in sorted_posts %}
+      <a href="{{ post.url }}" class="blog-item">
+        <div class="blog-item__date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <h3 class="blog-item__title">{{ post.title }}</h3>
+        {% if post.excerpt %}
+        <p class="blog-item__excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+        {% endif %}
+        <span class="blog-item__arrow">
+          Read more
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </span>
+      </a>
       {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
 {% endif %}
