@@ -10,14 +10,14 @@ extra_stylesheets:
 
 {{ content }}
 
-<div class="two-pane-viewer">
-  <div class="browser bp3-tree bp3-elevation-0">
+<div class="resource-viewer">
+  <div class="resource-viewer__browser bp3-tree bp3-elevation-0">
     <ul class="bp3-tree-node-list bp3-tree-root">
       {% include resource-tree-item.html data=page.contents.data children=page.contents.children level=0 %}
     </ul>
   </div>
 
-  <div class="viewer">
+  <div class="resource-viewer__panel">
     <iframe src="{{ "/assets/resource-viewer-placeholder.html" | relative_url }}"></iframe>
   </div>
 </div>
