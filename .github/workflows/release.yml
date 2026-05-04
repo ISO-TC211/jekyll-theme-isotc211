@@ -1,0 +1,56 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      next_version:
+        required: true
+        default: 'skip'
+  repository_dispatch:
+    types: [do-release]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Bump version
+        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
+        run: |
+          NEXT="${{ github.event.inputs.next_version }}"
+          CURRENT=$(grep 's.version' jekyll-theme-isotc211.gemspec | sed "s/.*'\([^']*\)'.*/\1/")
+          sed -i "s/s.version.*=.*'${CURRENT}'/s.version = '${NEXT}'/" jekyll-theme-isotc211.gemspec
+
+      - name: Build gem
+        run: gem build jekyll-theme-isotc211.gemspec
+
+      - name: Publish to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          echo "---" > $HOME/.gem/credentials
+          echo ":rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" >> $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          gem push jekyll-theme-isotc211-*.gem
+
+      - name: Tag and push
+        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
+        run: |
+          VERSION="${{ github.event.inputs.next_version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add jekyll-theme-isotc211.gemspec
+          git commit -m "chore: bump version to ${VERSION}"
+          git tag "v${VERSION}"
+          git push origin master --tags
