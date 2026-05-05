@@ -417,4 +417,137 @@
     color: #0061ad;
   }
   .dark .about-card__link { color: #66a3e0; }
+
+  /* ─── Card Grid ─── */
+  .card-grid {
+    display: grid;
+    gap: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-link {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+    overflow: hidden;
+  }
+  .dark .card-link { background: #1e293b; }
+
+  .card-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.375rem;
+    bottom: 0.375rem;
+    width: 3px;
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .card-link:hover::before { opacity: 1; }
+  .card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+  }
+  .dark .card-link:hover {
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-link--blue { border-color: #e0edfa; }
+  .dark .card-link--blue { border-color: rgba(51, 133, 214, 0.15); }
+  .card-link--blue::before { background: linear-gradient(180deg, #0061ad, #3385d6); }
+
+  .card-link--teal { border-color: #ccfbf1; }
+  .dark .card-link--teal { border-color: rgba(20, 184, 166, 0.15); }
+  .card-link--teal::before { background: linear-gradient(180deg, #0d9488, #2dd4bf); }
+
+  .card-link--emerald { border-color: #d1fae5; }
+  .dark .card-link--emerald { border-color: rgba(52, 211, 153, 0.15); }
+  .card-link--emerald::before { background: linear-gradient(180deg, #059669, #34d399); }
+
+  .card-link--amber { border-color: #fef3c7; }
+  .dark .card-link--amber { border-color: rgba(245, 158, 11, 0.15); }
+  .card-link--amber::before { background: linear-gradient(180deg, #d97706, #fbbf24); }
+
+  .card-link--rose { border-color: #ffe4e6; }
+  .dark .card-link--rose { border-color: rgba(244, 63, 94, 0.15); }
+  .card-link--rose::before { background: linear-gradient(180deg, #e11d48, #fb7185); }
+
+  .card-link--violet { border-color: #ede9fe; }
+  .dark .card-link--violet { border-color: rgba(139, 92, 246, 0.15); }
+  .card-link--violet::before { background: linear-gradient(180deg, #7c3aed, #a78bfa); }
+
+  .card-link__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-link:hover .card-link__icon { transform: scale(1.06); }
+  .card-link__icon svg { width: 1.125rem; height: 1.125rem; color: #fff; }
+
+  .card-link__icon--blue { background: linear-gradient(135deg, #0061ad, #3385d6); }
+  .card-link__icon--teal { background: linear-gradient(135deg, #0d9488, #2dd4bf); }
+  .card-link__icon--emerald { background: linear-gradient(135deg, #059669, #34d399); }
+  .card-link__icon--amber { background: linear-gradient(135deg, #d97706, #fbbf24); }
+  .card-link__icon--rose { background: linear-gradient(135deg, #e11d48, #fb7185); }
+  .card-link__icon--violet { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+
+  .card-link__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-link__title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+  }
+  .dark .card-link__title { color: #f1f5f9; }
+
+  .card-link__desc {
+    font-size: 0.8125rem;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  .dark .card-link__desc { color: #94a3b8; }
+
+  .card-link__meta {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+  }
+
+  .card-link__chevron {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    color: #cbd5e1;
+    transition: color 0.25s, transform 0.25s;
+  }
+  .dark .card-link__chevron { color: #475569; }
+  .card-link:hover .card-link__chevron {
+    color: #0061ad;
+    transform: translateX(2px);
+  }
+  .dark .card-link:hover .card-link__chevron { color: #66a3e0; }
 }
