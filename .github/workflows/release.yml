@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -53,4 +53,4 @@ jobs:
           git add jekyll-theme-isotc211.gemspec
           git commit -m "chore: bump version to ${VERSION}"
           git tag "v${VERSION}"
-          git push origin master --tags
+          git push origin main --tags
