@@ -36,13 +36,11 @@ jobs:
       - name: Build gem
         run: gem build jekyll-theme-isotc211.gemspec
 
+      - name: Configure RubyGems credentials
+        uses: rubygems/configure-rubygems-credentials@v1
+
       - name: Publish to RubyGems
-        run: |
-          mkdir -p $HOME/.gem
-          echo "---" > $HOME/.gem/credentials
-          echo ":rubygems_api_key: ${{ secrets.ISOTC211_RUBYGEMS_API_KEY }}" >> $HOME/.gem/credentials
-          chmod 0600 $HOME/.gem/credentials
-          gem push jekyll-theme-isotc211-*.gem
+        run: gem push jekyll-theme-isotc211-*.gem
 
       - name: Tag and push
         if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
