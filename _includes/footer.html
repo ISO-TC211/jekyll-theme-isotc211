@@ -26,7 +26,11 @@
         <ul class="site-footer__links">
           {% if site.nav %}
             {% for item in site.nav %}
+            {% if item.url contains "://" %}
+          <li><a href="{{ item.url }}" class="site-footer__link" target="_blank" rel="noopener">{{ item.title }}</a></li>
+            {% else %}
           <li><a href="{{ item.url | relative_url }}" class="site-footer__link">{{ item.title }}</a></li>
+            {% endif %}
             {% endfor %}
           {% endif %}
           {% if site.committee.home %}
