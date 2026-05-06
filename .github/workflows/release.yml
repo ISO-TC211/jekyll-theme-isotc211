@@ -19,7 +19,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.client_payload.ref || 'main' }}
+
+      - if: github.event_name == 'repository_dispatch'
+        run: git fetch --tags origin
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -27,12 +30,12 @@ jobs:
           bundler-cache: true
 
       - name: Bump version, tag, and push
-        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.next_version != 'skip' && inputs.next_version != '' }}
         run: |
           gem install gem-release
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
+          gem bump --version ${{ inputs.next_version }} --tag --push
 
       - name: Build gem
         run: gem build jekyll-theme-isotc211.gemspec
@@ -42,3 +45,17 @@ jobs:
 
       - name: Publish to RubyGems
         run: gem push jekyll-theme-isotc211-*.gem
+
+      - name: Wait for release to propagate
+        run: gem exec rubygems-await jekyll-theme-isotc211-*.gem
+
+      - name: Dispatch release-passed event
+        run: |
+          GEM_VERSION=$(ruby -e "puts Gem::Specification.load('jekyll-theme-isotc211.gemspec').version")
+          gh api repos/${{ github.repository }}/dispatches \
+            -f event_type=release-passed \
+            -f "client_payload[ref]=refs/tags/v${GEM_VERSION}" \
+            -f "client_payload[sha]=${{ github.sha }}" \
+            -f "client_payload[type]=release-passed"
+        env:
+          GH_TOKEN: ${{ github.token }}
