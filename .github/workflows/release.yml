@@ -26,13 +26,13 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Install gem-bump
+      - name: Bump version, tag, and push
         if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
-        run: gem install gem-release
-
-      - name: Bump version
-        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
-        run: gem bump --version ${{ github.event.inputs.next_version }} --no-commit
+        run: |
+          gem install gem-release
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
 
       - name: Build gem
         run: gem build jekyll-theme-isotc211.gemspec
@@ -42,14 +42,3 @@ jobs:
 
       - name: Publish to RubyGems
         run: gem push jekyll-theme-isotc211-*.gem
-
-      - name: Tag and push
-        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
-        run: |
-          VERSION="${{ github.event.inputs.next_version }}"
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add jekyll-theme-isotc211.gemspec
-          git commit -m "chore: bump version to ${VERSION}"
-          git tag "v${VERSION}"
-          git push origin main --tags
