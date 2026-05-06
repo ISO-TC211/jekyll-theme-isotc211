@@ -26,12 +26,13 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Install gem-bump
+        if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
+        run: gem install gem-release
+
       - name: Bump version
         if: ${{ github.event.inputs.next_version != 'skip' && github.event.inputs.next_version != '' }}
-        run: |
-          NEXT="${{ github.event.inputs.next_version }}"
-          CURRENT=$(grep 's.version' jekyll-theme-isotc211.gemspec | sed "s/.*'\([^']*\)'.*/\1/")
-          sed -i "s/s.version.*=.*'${CURRENT}'/s.version = '${NEXT}'/" jekyll-theme-isotc211.gemspec
+        run: gem bump --version ${{ github.event.inputs.next_version }} --no-commit
 
       - name: Build gem
         run: gem build jekyll-theme-isotc211.gemspec
